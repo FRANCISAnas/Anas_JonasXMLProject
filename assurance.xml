@@ -15,6 +15,15 @@
                     <datesinistre>5</datesinistre>
                 </DatesSinistres>
 
+                <Depistages>
+                    <Depistage date="5/2005">
+                        <Resultat>0</Resultat>
+                    </Depistage>
+                    <Depistage date="6/2005">
+                        <Resultat>0</Resultat>
+                    </Depistage>
+                </Depistages>
+
             </Auto>
 
             <Moto date_permis="" date_mise_en_circu="">
@@ -73,10 +82,50 @@
     </Clients>
 
     <Risques>
+        <CatastrophNaturelle>
 
+        </CatastrophNaturelle>
 
+        <Incendie>
+
+        </Incendie>
+
+        <DegatsDesEaux>
+
+        </DegatsDesEaux>
+
+        <Accident>
+
+        </Accident>
+
+        <Vols>
+
+        </Vols>
+
+        <Terrorisme>
+
+        </Terrorisme>
 
     </Risques>
+
+
+    <Employees>
+        <Conseillers>
+            <conseiller>
+                <Nom></Nom>
+                <Prenom></Prenom>
+            </conseiller>
+
+            <conseiller>
+                <Nom></Nom>
+                <Prenom></Prenom>
+            </conseiller>
+
+        </Conseillers>
+
+
+
+    </Employees>
 
 
 
