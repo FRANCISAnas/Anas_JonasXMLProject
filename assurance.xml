@@ -2,6 +2,82 @@
 <CampagnieAssurance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:noNamespaceSchemaLocation="validator.xsd">
 
+    <Clients>
+        <Client>
+            <Auto date_permis="" date_permis_conjoint="" date_mise_en_circu="" prix_haute_gamme="">
+
+                <Marque>fiat</Marque>
+
+                <NumImmarticulation>559RTR8</NumImmarticulation>
+                <BonusMalus type="Bonus">56465</BonusMalus>
+                <DatesSinistres>
+                    <datesinistre>5</datesinistre>
+                    <datesinistre>5</datesinistre>
+                </DatesSinistres>
+
+            </Auto>
+
+            <Moto date_permis="" date_mise_en_circu="">
+                <Marque>fiat</Marque>
+
+                <NumImmarticulation>559RTR8</NumImmarticulation>
+                <BonusMalus type="Bonus">56465</BonusMalus>
+                <DatesSinistres>
+                    <datesinistre>5</datesinistre>
+                    <datesinistre>5</datesinistre>
+                </DatesSinistres>
+
+                <Depistages>
+                    <Depistage date="5/2005">
+                        <Resultat>0</Resultat>
+                    </Depistage>
+                    <Depistage date="6/2005">
+                        <Resultat>0</Resultat>
+                    </Depistage>
+                </Depistages>
+            </Moto>
+
+            <Habitation>
+                <SurfaceHabitation>94.4</SurfaceHabitation> <!--contrat de bail-->
+                <Dependences>
+                    <Dependence>
+                        <Libele>jardin</Libele>
+                        <Surface>15.9</Surface>
+                    </Dependence>
+                </Dependences>
+
+                <EstimationValeur>50000</EstimationValeur>
+            </Habitation>
+
+            <Emprunt>
+                <Montant></Montant>
+                <Type></Type>
+                <Duree>
+                    <DateDebut>6/2010</DateDebut>
+                    <DateFin>6/2023</DateFin>
+                </Duree>
+            </Emprunt>
+
+        </Client>
+
+        <Client>
+
+        </Client>
+
+
+        <Client>
+
+        </Client>
+
+
+    </Clients>
+
+
+
+
+
+
+
 
 
 
