@@ -6,29 +6,29 @@
         <Client id = "1">
             <Nom></Nom>
             <Prenom></Prenom>
-            <DateDeNaissance></DateDeNaissance>
+            <DateDeNaissance>1998-01-01</DateDeNaissance>
             <AdressePostal>
                 <Adresse>
                     <NumeroDeRue>7</NumeroDeRue>
-                    <NomDeRue></NomDeRue>
+                    <NomDeRue>rue des alpes</NomDeRue>
                 </Adresse>
-                <CodePostal></CodePostal>
-                <Ville></Ville>
-                <Pays></Pays>
+                <CodePostal>07000</CodePostal>
+                <Ville>Privas</Ville>
+                <Pays>France</Pays>
             </AdressePostal>
             <Tel>07.30.30.11.48</Tel>
             <DonnesBancaire>
-                <NomDeBanque></NomDeBanque>
-                <Pays></Pays>
+                <NomDeBanque>La banque postale</NomDeBanque>
                 <RIB>FR33-3504-3696-7720-4004-6981-338</RIB>
+                <Pays>France</Pays>
             </DonnesBancaire>
-            <Email>anas.francis@etu.univ-cotedazur.fr</Email>
+            <Email>anas.francis@etu.unice.fr</Email>
 
-            <Auto date_permis="2009-5-10" date_permis_conjoint="2012-6-26" date_mise_en_circu="2014-7-20">
+            <Auto date_permis="2009-05-10" date_permis_conjoint="2012-06-26" date_mise_en_circu="2014-07-20">
 
                 <Marque>fiat</Marque>
 
-                <NumImmarticulation>559RTR8</NumImmarticulation>
+                <NumImmarticulation>FT-252-LZ</NumImmarticulation>
                 <HautGamme type = "1">
                     <Prix>11000</Prix> <!-- Le prix en valeur entière et en euros -->
                 </HautGamme>
@@ -36,38 +36,38 @@
                     <Valeur>156</Valeur>
                 </BonusMalus>
                 <DatesSinistres type = "1">
-                    <datesinistre>2016-4-13</datesinistre>
-                    <datesinistre>2018-9-19</datesinistre>
+                    <datesinistre>2016-04-13</datesinistre>
+                    <datesinistre>2018-09-19</datesinistre>
                 </DatesSinistres>
 
                 <Depistages type = "1">
                     <Depistage date="2002-09-24">
                         <Resultat>Positive</Resultat>
                     </Depistage>
-                    <Depistage date="2005-5-30">
+                    <Depistage date="2005-05-30">
                         <Resultat>Negative</Resultat>
                     </Depistage>
                 </Depistages>
 
             </Auto>
 
-            <Moto date_permis="" date_mise_en_circu="">
-                <Marque>fiat</Marque>
+            <Moto date_permis="2019-02-15" date_mise_en_circu="2019-03-30">
+                <Marque>BMW</Marque>
 
-                <NumImmarticulation>559RTR8</NumImmarticulation>
-                <BonusMalus type="1">
+                <NumImmarticulation>KK-524-ZE</NumImmarticulation>
+                <BonusMalus type="0">
                     <Valeur>5523</Valeur>
                 </BonusMalus>
                 <DatesSinistres type = "1">
-                    <datesinistre>2017-4-13</datesinistre>
-                    <datesinistre>2016-8-26</datesinistre>
+                    <datesinistre>2017-04-13</datesinistre>
+                    <datesinistre>2016-08-26</datesinistre>
                 </DatesSinistres>
 
                 <Depistages type = "1">
-                    <Depistage date="2005-5-30">
+                    <Depistage date="2005-05-30">
                         <Resultat>0</Resultat>
                     </Depistage>
-                    <Depistage date="-2005-6-20">
+                    <Depistage date="-2005-06-20">
                         <Resultat>0</Resultat>
                     </Depistage>
                 </Depistages>
@@ -90,7 +90,7 @@
                     <Montant>5000</Montant>
                     <Type></Type>
                     <Duree>
-                        <DateDebut>2010-6-13</DateDebut>
+                        <DateDebut>2010-06-13</DateDebut>
                         <DateFin>2023-12-30</DateFin>
                     </Duree>
                 </Emprunt>
@@ -98,14 +98,7 @@
 
         </Client>
 
-        <Client id = "2">
 
-        </Client>
-
-
-        <Client id ="3">
-
-        </Client>
 
 
     </Clients>

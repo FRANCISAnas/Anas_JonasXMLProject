@@ -26,7 +26,7 @@
             <xs:element name='AdressePostal' type="AdressePostalType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='Tel' type="TelType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='DonnesBancaire' type="DonnesBancaireType" maxOccurs="1" minOccurs="0"/> <!-- payment par chèque ou espèce-->
-            <xs:element name='Email' type="xs:string" maxOccurs="1" minOccurs="0"/>
+            <xs:element name='Email' type="EmailType" maxOccurs="1" minOccurs="0"/>
             <xs:element name='Auto' type="AutoType" maxOccurs="unbounded" minOccurs="0"/>
             <xs:element name='Moto' type="MotoType" maxOccurs="unbounded" minOccurs="0"/>
             <xs:element name='Habitation' type="HabitationType" maxOccurs="unbounded" minOccurs="0"/>
@@ -40,8 +40,6 @@
         <xs:sequence>
             <xs:element name='Adresse' type="AdresseType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='CodePostal' type="CodePostalType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='DateDeNaissance' type="xs:date" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='AdressePostal' type="AdressePostalType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='Ville' type="xs:string" maxOccurs="1" minOccurs="1"/>
             <xs:element name='Pays' type="xs:string" maxOccurs="1" minOccurs="1"/>
 
@@ -65,6 +63,12 @@
 
     </xs:complexType>
 
+    <xs:simpleType name="EmailType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-z0-9]+.[a-z0-9]+@[a-z.-]+.[a-z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:simpleType name='CodePostalType'>
         <xs:restriction base='xs:string'>
             <xs:pattern value='[0-9]{5}(-[0-9]{4})?'/>
@@ -80,7 +84,7 @@
 
     <xs:simpleType name="RIBType">
         <xs:restriction base='xs:string'>
-            <xs:pattern value="[A-Z][A-Z][0-9][0-9](-[0-9][0-9][0-9][0-9])+[0-9][0-9][0-9]"/>
+            <xs:pattern value="[A-Z][A-Z][0-9][0-9](-[0-9][0-9][0-9][0-9])+-[0-9][0-9][0-9]"/>
         </xs:restriction>
     </xs:simpleType>
 
@@ -88,7 +92,7 @@
     <xs:complexType name="AutoType">
         <xs:sequence>
             <xs:element name='Marque' type="xs:string" maxOccurs="1" minOccurs="1"/> <!-- Une voiture est issue d'une seule marque-->
-            <xs:element name='NumImmarticulation' type="xs:integer" maxOccurs="1" minOccurs="1"/> <!-- Num imm est unique-->
+            <xs:element name='NumImmarticulation' type="NumImmarticulationType" maxOccurs="1" minOccurs="1"/> <!-- Num imm est unique-->
             <xs:element name='HautGamme' type="HautGammeType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='BonusMalus' type="BonusMalusType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='DatesSinistres' type="DatesSinistresType" maxOccurs="1" minOccurs="0"/>
@@ -102,11 +106,16 @@
 
     </xs:complexType>
 
+    <xs:simpleType name="NumImmarticulationType">
+        <xs:restriction base='xs:string'>
+            <xs:pattern value="[A-Z][A-Z]-[0-9][0-9][0-9]-[A-Z][A-Z]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
     <xs:complexType name="MotoType">
         <xs:sequence>
             <xs:element name='Marque' type="xs:string" maxOccurs="1" minOccurs="1"/> <!-- Un motp est issue d'une seule marque-->
-            <xs:element name='NumImmarticulation' type="xs:integer" maxOccurs="1" minOccurs="1"/> <!-- Num imm est unique-->
-            <xs:element name='HautGamme' type="HautGammeType" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='NumImmarticulation' type="NumImmarticulationType" maxOccurs="1" minOccurs="1"/> <!-- Num imm est unique-->
             <xs:element name='BonusMalus' type="BonusMalusType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='DatesSinistres' type="DatesSinistresType" maxOccurs="1" minOccurs="0"/>
             <xs:element name='Depistages' type="DepistagesType" maxOccurs="1" minOccurs="0"/>
@@ -251,4 +260,6 @@
         </xs:sequence>
         <xs:attribute name='id' type='xs:integer'/>
     </xs:complexType>
+
+
 </xs:schema>
