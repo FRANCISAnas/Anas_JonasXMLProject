@@ -20,12 +20,70 @@
 
     <xs:complexType name="ClientType">
         <xs:sequence>
+            <xs:element name='Nom' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Prenom' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='DateDeNaissance' type="xs:date" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='AdressePostal' type="AdressePostalType" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Tel' type="TelType" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='DonnesBancaire' type="DonnesBancaireType" maxOccurs="1" minOccurs="0"/> <!-- payment par chèque ou espèce-->
+            <xs:element name='Email' type="xs:string" maxOccurs="1" minOccurs="0"/>
             <xs:element name='Auto' type="AutoType" maxOccurs="unbounded" minOccurs="0"/>
             <xs:element name='Moto' type="MotoType" maxOccurs="unbounded" minOccurs="0"/>
             <xs:element name='Habitation' type="HabitationType" maxOccurs="unbounded" minOccurs="0"/>
             <xs:element name='Emprunts' type="EmpruntsType" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
+        <xs:attribute name='id' type='xs:integer'/>
+
     </xs:complexType>
+
+    <xs:complexType name="AdressePostalType">
+        <xs:sequence>
+            <xs:element name='Adresse' type="AdresseType" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='CodePostal' type="CodePostalType" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='DateDeNaissance' type="xs:date" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='AdressePostal' type="AdressePostalType" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Ville' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Pays' type="xs:string" maxOccurs="1" minOccurs="1"/>
+
+        </xs:sequence>
+
+    </xs:complexType>
+
+    <xs:simpleType name="TelType">
+        <xs:restriction base='xs:string'>
+            <xs:pattern value='[0-9][0-9](.[0-9][0-9])+'/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="DonnesBancaireType">
+        <xs:sequence>
+
+            <xs:element name='NomDeBanque' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='RIB' type="RIBType" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Pays' type="xs:string" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+
+    </xs:complexType>
+
+    <xs:simpleType name='CodePostalType'>
+        <xs:restriction base='xs:string'>
+            <xs:pattern value='[0-9]{5}(-[0-9]{4})?'/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:complexType name="AdresseType">
+        <xs:sequence>
+            <xs:element name='NumeroDeRue' type="xs:integer" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='NomDeRue' type="xs:string" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:simpleType name="RIBType">
+        <xs:restriction base='xs:string'>
+            <xs:pattern value="[A-Z][A-Z][0-9][0-9](-[0-9][0-9][0-9][0-9])+[0-9][0-9][0-9]"/>
+        </xs:restriction>
+    </xs:simpleType>
+
 
     <xs:complexType name="AutoType">
         <xs:sequence>
@@ -115,7 +173,7 @@
 
     <xs:complexType name="DepistageType">
         <xs:sequence>
-            <xs:element name='Resultat' type="xs:integer" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Resultat' type="xs:string" maxOccurs="1" minOccurs="1"/>
         </xs:sequence>
         <xs:attribute name='date' type='xs:date'/>
 
@@ -152,12 +210,45 @@
 
 
 
-    <xs:complexType name="RisquesType"></xs:complexType>
+    <xs:complexType name="RisquesType">
+        <xs:sequence>
+            <xs:element name='CatastrophesNaturelle' type="CatastrophesNaturelleType" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Incendie' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='DegatsDesEaux' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Accident' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Vols' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Terrorisme' type="xs:string" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="CatastrophesNaturelleType">
+
+    </xs:complexType>
 
 
 
-    <xs:complexType name="EmployeesType"></xs:complexType>
+    <xs:complexType name="EmployeesType">
+        <xs:sequence>
+            <xs:element name='Conseillers' type="ConseillersType" maxOccurs="1" minOccurs="1"/>
+
+        </xs:sequence>
+    </xs:complexType>
 
 
+    <xs:complexType name="ConseillersType">
+        <xs:sequence>
+            <xs:element name='Conseiller' type="ConseillerType" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
 
+    </xs:complexType>
+
+
+    <xs:complexType name="ConseillerType">
+        <xs:sequence>
+            <xs:element name='Nom' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Prenom' type="xs:string" maxOccurs="1" minOccurs="1"/>
+
+        </xs:sequence>
+        <xs:attribute name='id' type='xs:integer'/>
+    </xs:complexType>
 </xs:schema>
