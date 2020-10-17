@@ -4,22 +4,27 @@
 
     <Clients>
         <Client>
-            <Auto date_permis="" date_permis_conjoint="" date_mise_en_circu="" prix_haute_gamme="">
+            <Auto date_permis="2009-5-10" date_permis_conjoint="2012-6-26" date_mise_en_circu="2014-7-20">
 
                 <Marque>fiat</Marque>
 
                 <NumImmarticulation>559RTR8</NumImmarticulation>
-                <BonusMalus type="Bonus">56465</BonusMalus>
-                <DatesSinistres>
-                    <datesinistre>5</datesinistre>
-                    <datesinistre>5</datesinistre>
+                <HautGamme type = "1">
+                    <Prix>11000</Prix> <!-- Le prix en valeur entière et en euros -->
+                </HautGamme>
+                <BonusMalus type="1">
+                    <Valeur>156</Valeur>
+                </BonusMalus>
+                <DatesSinistres type = "1">
+                    <datesinistre>2016-4-13</datesinistre>
+                    <datesinistre>2018-9-19</datesinistre>
                 </DatesSinistres>
 
-                <Depistages>
-                    <Depistage date="5/2005">
+                <Depistages type = "1">
+                    <Depistage date="2002-09-24">
                         <Resultat>0</Resultat>
                     </Depistage>
-                    <Depistage date="6/2005">
+                    <Depistage date="2005-5-30">
                         <Resultat>0</Resultat>
                     </Depistage>
                 </Depistages>
@@ -30,17 +35,19 @@
                 <Marque>fiat</Marque>
 
                 <NumImmarticulation>559RTR8</NumImmarticulation>
-                <BonusMalus type="Bonus">56465</BonusMalus>
-                <DatesSinistres>
-                    <datesinistre>5</datesinistre>
-                    <datesinistre>5</datesinistre>
+                <BonusMalus type="1">
+                    <Valeur>5523</Valeur>
+                </BonusMalus>
+                <DatesSinistres type = "1">
+                    <datesinistre>2017-4-13</datesinistre>
+                    <datesinistre>2016-8-26</datesinistre>
                 </DatesSinistres>
 
-                <Depistages>
-                    <Depistage date="5/2005">
+                <Depistages type = "1">
+                    <Depistage date="2005-5-30">
                         <Resultat>0</Resultat>
                     </Depistage>
-                    <Depistage date="6/2005">
+                    <Depistage date="-2005-6-20">
                         <Resultat>0</Resultat>
                     </Depistage>
                 </Depistages>
@@ -48,7 +55,7 @@
 
             <Habitation>
                 <SurfaceHabitation>94.4</SurfaceHabitation> <!--contrat de bail-->
-                <Dependences>
+                <Dependences type = "1">
                     <Dependence>
                         <Libele>jardin</Libele>
                         <Surface>15.9</Surface>
@@ -58,14 +65,16 @@
                 <EstimationValeur>50000</EstimationValeur>
             </Habitation>
 
-            <Emprunt>
-                <Montant></Montant>
-                <Type></Type>
-                <Duree>
-                    <DateDebut>6/2010</DateDebut>
-                    <DateFin>6/2023</DateFin>
-                </Duree>
-            </Emprunt>
+            <Emprunts>
+                <Emprunt>
+                    <Montant>5000</Montant>
+                    <Type></Type>
+                    <Duree>
+                        <DateDebut>2010-6-13</DateDebut>
+                        <DateFin>2023-12-30</DateFin>
+                    </Duree>
+                </Emprunt>
+            </Emprunts>
 
         </Client>
 
