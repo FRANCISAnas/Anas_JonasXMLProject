@@ -3,7 +3,7 @@
                     xsi:noNamespaceSchemaLocation="validator.xsd">
 
     <Clients>
-        <Client id = "1">
+        <Client id="1">
             <Nom></Nom>
             <Prenom></Prenom>
             <DateDeNaissance></DateDeNaissance>
@@ -23,11 +23,8 @@
                 <RIB>FR33-3504-3696-7720-4004-6981-338</RIB>
             </DonnesBancaire>
             <Email>anas.francis@etu.univ-cotedazur.fr</Email>
-
             <Auto date_permis="2009-5-10" date_permis_conjoint="2012-6-26" date_mise_en_circu="2014-7-20">
-
                 <Marque>fiat</Marque>
-
                 <NumImmarticulation>559RTR8</NumImmarticulation>
                 <HautGamme type = "1">
                     <Prix>11000</Prix> <!-- Le prix en valeur entière et en euros -->
