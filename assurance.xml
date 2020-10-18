@@ -28,18 +28,18 @@
                     <Marque>fiat</Marque>
 
                     <NumImmarticulation>FT-252-LZ</NumImmarticulation>
-                    <HautGamme type = "1">
+                    <HautGamme>
                         <Prix>11000</Prix> <!-- Le prix en valeur entière et en euros -->
                     </HautGamme>
-                    <BonusMalus type="1">
+                    <BonusMalus>
                         <Valeur>156</Valeur>
                     </BonusMalus>
-                    <DatesSinistres type = "1">
+                    <DatesSinistres>
                         <datesinistre>2016-04-13</datesinistre>
                         <datesinistre>2018-09-19</datesinistre>
                     </DatesSinistres>
 
-                    <Depistages type = "1">
+                    <Depistages>
                         <Depistage date="2002-09-24">
                             <Resultat>Positive</Resultat>
                         </Depistage>
@@ -56,15 +56,15 @@
                     <Marque>BMW</Marque>
 
                     <NumImmarticulation>KK-524-ZE</NumImmarticulation>
-                    <BonusMalus type="0">
+                    <BonusMalus>
                         <Valeur>5523</Valeur>
                     </BonusMalus>
-                    <DatesSinistres type = "1">
+                    <DatesSinistres>
                         <datesinistre>2017-04-13</datesinistre>
                         <datesinistre>2016-08-26</datesinistre>
                     </DatesSinistres>
 
-                    <Depistages type = "1">
+                    <Depistages>
                         <Depistage date="2005-05-30">
                             <Resultat>0</Resultat>
                         </Depistage>
@@ -87,7 +87,7 @@
                         <Pays>France</Pays>
                     </AdressePostal>
                     <SurfaceHabitation>94.4</SurfaceHabitation> <!--contrat de bail-->
-                    <Dependences type = "1">
+                    <Dependences>
                         <Dependence>
                             <Libele>jardin</Libele>
                             <Surface>15.9</Surface>
@@ -111,8 +111,124 @@
 
         </Client>
 
+        <Client id = "2">
+            <Nom>Amissan</Nom>
+            <Prenom>Coyot</Prenom>
+            <DateDeNaissance>1989-10-05</DateDeNaissance>
+            <AdressePostal>
+                <Adresse>
+                    <NumeroDeRue>1007</NumeroDeRue>
+                    <NomDeRue>rue des Colles</NomDeRue>
+                </Adresse>
+                <CodePostal>05020</CodePostal>
+                <Ville>Toulouse</Ville>
+                <Pays>France</Pays>
+            </AdressePostal>
+            <Tel>07.40.03.01.22</Tel>
+            <DonnesBancaire>
+                <NomDeBanque>La BNP</NomDeBanque>
+                <RIB>FR76-4345-6398-2240-5229-9683-336</RIB>
+                <Pays>France</Pays>
+            </DonnesBancaire>
+            <Email>amissancoyot@gmail.com</Email>
+            <Autos>
+                <Auto date_permis="2012-08-20" date_permis_conjoint="2015-02-15" date_mise_en_circu="2013-07-10">
+                    <Marque>Audi</Marque>
+                    <NumImmarticulation>TU-324-IY</NumImmarticulation>
+                    <HautGamme>
+                        <Prix>21000</Prix> <!-- Le prix en valeur entière et en euros -->
+                    </HautGamme>
+                    <BonusMalus>
+                        <Valeur>300</Valeur>
+                    </BonusMalus>
+
+                    <Depistages>
+                        <Depistage date="2014-04-24">
+                            <Resultat>Negative</Resultat>
+                        </Depistage>
+                        <Depistage date="2015-05-16">
+                            <Resultat>Negative</Resultat>
+                        </Depistage>
+                    </Depistages>
+                </Auto>
+
+            </Autos>
+
+            <Motos>
+                <Moto date_permis="2016-02-15" date_mise_en_circu="2016-03-30">
+                    <Marque>Honda</Marque>
+
+                    <NumImmarticulation>KK-524-ZE</NumImmarticulation>
+                    <BonusMalus>
+                        <Valeur>5523</Valeur>
+                    </BonusMalus>
+                    <DatesSinistres>
+                        <datesinistre>2014-01-13</datesinistre>
+                        <datesinistre>2016-08-26</datesinistre>
+                    </DatesSinistres>
+
+                    <Depistages>
+                        <Depistage date="2017-05-30">
+                            <Resultat>Négative</Resultat>
+                        </Depistage>
+                        <Depistage date="-2017-07-20">
+                            <Resultat>Positive</Resultat>
+                        </Depistage>
+                    </Depistages>
+                </Moto>
+            </Motos>
 
 
+
+        </Client>
+
+        <Client>
+            <Nom>DUPONT</Nom>
+            <Prenom>Angélique</Prenom>
+            <DateDeNaissance>03-06-1995</DateDeNaissance>
+            <AdressePostal>
+                <Adresse>
+                    <NumeroDeRue>75014</NumeroDeRue>
+                    <NomDeRue>Allée Georges-Besse</NomDeRue>
+                </Adresse>
+                <CodePostal>4567</CodePostal>
+                <Ville>Paris</Ville>
+                <Pays>France</Pays>
+            </AdressePostal>
+            <Tel>09.04.33.91.20</Tel>
+            <Habitations>
+                <Habitation>
+                    <AdressePostal>
+                        <Adresse>
+                            <NumeroDeRue>31200</NumeroDeRue>
+                            <NomDeRue>Rue de l'Abbé Naudin</NomDeRue>
+                        </Adresse>
+                        <CodePostal>07440</CodePostal>
+                        <Ville>Toulouse</Ville>
+                        <Pays>France</Pays>
+                    </AdressePostal>
+                    <SurfaceHabitation>94.4</SurfaceHabitation> <!--contrat de bail-->
+                    <Dependences>
+                        <Dependence>
+                            <Libele>Blacon</Libele>
+                            <Surface>13.4</Surface>
+                        </Dependence>
+                    </Dependences>
+                    <EstimationValeur>60000</EstimationValeur>
+                </Habitation>
+            </Habitations>
+
+            <Emprunts>
+                <Emprunt>
+                    <Montant>2000</Montant>
+                    <Type></Type>
+                    <Duree>
+                        <DateDebut>2019-02-12</DateDebut>
+                        <DateFin>2022-02-12</DateFin>
+                    </Duree>
+                </Emprunt>
+            </Emprunts>
+        </Client>
 
     </Clients>
 
