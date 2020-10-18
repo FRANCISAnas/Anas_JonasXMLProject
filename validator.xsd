@@ -3,18 +3,30 @@
     <xs:element name="CampagnieAssurance">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name='Clients' type="ClientsType" maxOccurs="1" minOccurs="1"/>
+                <xs:element name='Clients' type="ClientsType" maxOccurs="1" minOccurs="0"/>
                 <xs:element name='Risques' type="RisquesType" maxOccurs="1" minOccurs="1"/>
-                <xs:element name='Employees' type="EmployeesType" maxOccurs="1" minOccurs="1"/>
+                <xs:element name='Employees' type="EmployeesType" maxOccurs="1" minOccurs="0"/>
+                <xs:element name='Contrats' type="ContratsType" maxOccurs="1" minOccurs="0"/>
             </xs:sequence>
-
         </xs:complexType>
+
+        <xs:key name="contratKey">
+            <xs:selector xpath="CampagnieAssurance/Contrats/Contrat"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+
+        <xs:keyref name="dummy2" refer="contratKey">
+            <xs:selector xpath="CampagnieAssurance/Clients/Client/ContratsAssocies/ContratClient"/>
+            <xs:field xpath="@idContrat"/>
+        </xs:keyref>
+
     </xs:element>
 
     <xs:complexType name="ClientsType">
         <xs:sequence>
             <xs:element name="Client" type="ClientType" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
+
     </xs:complexType>
 
 
@@ -27,10 +39,7 @@
             <xs:element name='Tel' type="TelType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='DonnesBancaire' type="DonnesBancaireType" maxOccurs="1" minOccurs="0"/> <!-- payment par chèque ou espèce-->
             <xs:element name='Email' type="EmailType" maxOccurs="1" minOccurs="0"/>
-            <xs:element name='Autos' type="AutosType" maxOccurs="1" minOccurs="0"/>
-            <xs:element name='Motos' type="MotosType" maxOccurs="1" minOccurs="0"/>
-            <xs:element name='Habitations' type="HabitationsType" maxOccurs="1" minOccurs="0"/>
-            <xs:element name='Emprunts' type="EmpruntsType" maxOccurs="1" minOccurs="0"/>
+            <xs:element name='ContratsAssocies' type="ContratsAssociesType" maxOccurs="1" minOccurs="1"/>
         </xs:sequence>
         <xs:attribute name='id' type='xs:integer'/>
 
@@ -42,7 +51,6 @@
             <xs:element name='CodePostal' type="CodePostalType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='Ville' type="xs:string" maxOccurs="1" minOccurs="1"/>
             <xs:element name='Pays' type="xs:string" maxOccurs="1" minOccurs="1"/>
-
         </xs:sequence>
 
     </xs:complexType>
@@ -55,7 +63,6 @@
 
     <xs:complexType name="DonnesBancaireType">
         <xs:sequence>
-
             <xs:element name='NomDeBanque' type="xs:string" maxOccurs="1" minOccurs="1"/>
             <xs:element name='RIB' type="RIBType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='Pays' type="xs:string" maxOccurs="1" minOccurs="1"/>
@@ -97,7 +104,6 @@
             <xs:element name='BonusMalus' type="BonusMalusType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='DatesSinistres' type="DatesSinistresType" maxOccurs="1" minOccurs="0"/>
             <xs:element name='Depistages' type="DepistagesType" maxOccurs="1" minOccurs="0"/>
-
         </xs:sequence>
 
         <xs:attribute name='date_permis' type='xs:date'/>
@@ -106,11 +112,6 @@
 
     </xs:complexType>
 
-    <xs:complexType name="MotosType">
-        <xs:sequence>
-            <xs:element name='Moto' type="MotoType" maxOccurs="unbounded" minOccurs="1"/>
-        </xs:sequence>
-    </xs:complexType>
 
     <xs:simpleType name="NumImmarticulationType">
         <xs:restriction base='xs:string'>
@@ -119,19 +120,6 @@
     </xs:simpleType>
 
 
-    <xs:complexType name="AutosType">
-        <xs:sequence>
-            <xs:element name='Auto' type="AutoType" maxOccurs="unbounded" minOccurs="1"/>
-        </xs:sequence>
-    </xs:complexType>
-
-
-    <xs:complexType name="HabitationsType">
-        <xs:sequence>
-            <xs:element name='Habitation' type="HabitationType" maxOccurs="unbounded" minOccurs="1"/>
-        </xs:sequence>
-    </xs:complexType>
-
     <xs:complexType name="MotoType">
         <xs:sequence>
             <xs:element name='Marque' type="xs:string" maxOccurs="1" minOccurs="1"/> <!-- Un motp est issue d'une seule marque-->
@@ -139,7 +127,6 @@
             <xs:element name='BonusMalus' type="BonusMalusType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='DatesSinistres' type="DatesSinistresType" maxOccurs="1" minOccurs="0"/>
             <xs:element name='Depistages' type="DepistagesType" maxOccurs="1" minOccurs="0"/>
-
         </xs:sequence>
 
         <xs:attribute name='date_permis' type='xs:date'/>
@@ -153,18 +140,8 @@
             <xs:element name='SurfaceHabitation' type="xs:float" maxOccurs="1" minOccurs="1"/> <!-- Un motp est issue d'une seule marque-->
             <xs:element name='Dependences' type="DependencesType" maxOccurs="1" minOccurs="1"/> <!-- Num imm est unique-->
             <xs:element name='EstimationValeur' type="xs:integer" maxOccurs="1" minOccurs="1"/>
-
         </xs:sequence>
-
     </xs:complexType>
-
-    <xs:complexType name="EmpruntsType">
-        <xs:sequence>
-            <xs:element name='Emprunt' type="EmpruntType" maxOccurs="unbounded" minOccurs="1"/>
-        </xs:sequence>
-
-    </xs:complexType>
-
 
     <xs:complexType name="EmpruntType">
         <xs:sequence>
@@ -238,29 +215,16 @@
 
     </xs:complexType>
 
-
-
     <xs:complexType name="RisquesType">
         <xs:sequence>
-            <xs:element name='CatastrophesNaturelle' type="CatastrophesNaturelleType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='Incendie' type="xs:string" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='DegatsDesEaux' type="xs:string" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='Accident' type="xs:string" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='Vols' type="xs:string" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='Terrorisme' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name="Risque" type="RisqueType" minOccurs="1" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
-
-    <xs:complexType name="CatastrophesNaturelleType">
-
-    </xs:complexType>
-
 
 
     <xs:complexType name="EmployeesType">
         <xs:sequence>
             <xs:element name='Conseillers' type="ConseillersType" maxOccurs="1" minOccurs="1"/>
-
         </xs:sequence>
     </xs:complexType>
 
@@ -269,7 +233,6 @@
         <xs:sequence>
             <xs:element name='Conseiller' type="ConseillerType" maxOccurs="unbounded" minOccurs="1"/>
         </xs:sequence>
-
     </xs:complexType>
 
 
@@ -277,10 +240,53 @@
         <xs:sequence>
             <xs:element name='Nom' type="xs:string" maxOccurs="1" minOccurs="1"/>
             <xs:element name='Prenom' type="xs:string" maxOccurs="1" minOccurs="1"/>
-
         </xs:sequence>
+
         <xs:attribute name='id' type='xs:integer'/>
     </xs:complexType>
 
 
+    <xs:complexType name="ContratsType">
+        <xs:sequence>
+            <xs:element name='Contrat' type="ContratType" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+
+    <xs:complexType name="ContratType">
+        <xs:sequence>
+            <xs:element name='Auto' type="AutoType" maxOccurs="1" minOccurs="0"/>
+            <xs:element name='Moto' type="MotoType" maxOccurs="1" minOccurs="0"/>
+            <xs:element name='Habitation' type="HabitationType" maxOccurs="1" minOccurs="0"/>
+            <xs:element name='Emprunt' type="EmpruntType" maxOccurs="1" minOccurs="0"/>
+        </xs:sequence>
+
+        <xs:attribute name='id' type='xs:integer'/>
+    </xs:complexType>
+
+
+    <xs:complexType name="ContratsAssociesType">
+        <xs:sequence>
+            <xs:element name='ContratClient' type="ContratClientType" maxOccurs="unbounded" minOccurs="1"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ContratClientType">
+        <xs:sequence>
+            <xs:element name='TypeContrat' type="xs:string" maxOccurs="1" minOccurs="1"/>
+        </xs:sequence>
+
+        <xs:attribute name='idContrat' type='xs:integer'/>
+    </xs:complexType>
+
+    <xs:simpleType name="RisqueType">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="CatastrophesNaturelle" />
+            <xs:enumeration value="Incendie" />
+            <xs:enumeration value="DegatsDesEaux" />
+            <xs:enumeration value="Accident" />
+            <xs:enumeration value="Vols" />
+            <xs:enumeration value="Terrorisme" />
+        </xs:restriction>
+    </xs:simpleType>
 </xs:schema>
