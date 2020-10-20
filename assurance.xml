@@ -61,7 +61,7 @@
             </ContratsAssocies>
         </Client>
 
-        <Client>
+        <Client id="3">
             <Nom>DUPONT</Nom>
             <Prenom>Angélique</Prenom>
             <DateDeNaissance>1995-06-03</DateDeNaissance>
