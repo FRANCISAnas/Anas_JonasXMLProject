@@ -1,3 +1,1111 @@
 {
-
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "type": "object",
+  "properties": {
+    "@noNamespaceSchemaLocation": {
+      "type": "string"
+    },
+    "Clients": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Nom": {
+              "type": "string"
+            },
+            "Prenom": {
+              "type": "string"
+            },
+            "DateDeNaissance": {
+              "type": "string"
+            },
+            "AdressePostal": {
+              "type": "object",
+              "properties": {
+                "Adresse": {
+                  "type": "object",
+                  "properties": {
+                    "NumeroDeRue": {
+                      "type": "string"
+                    },
+                    "NomDeRue": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "NumeroDeRue",
+                    "NomDeRue"
+                  ]
+                },
+                "CodePostal": {
+                  "type": "string"
+                },
+                "Ville": {
+                  "type": "string"
+                },
+                "Pays": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Adresse",
+                "CodePostal",
+                "Ville",
+                "Pays"
+              ]
+            },
+            "Tel": {
+              "type": "string"
+            },
+            "DonnesBancaire": {
+              "type": "object",
+              "properties": {
+                "NomDeBanque": {
+                  "type": "string"
+                },
+                "RIB": {
+                  "type": "string"
+                },
+                "Pays": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "NomDeBanque",
+                "RIB",
+                "Pays"
+              ]
+            },
+            "Email": {
+              "type": "string"
+            },
+            "ContratsAssocies": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "@idContrat": {
+                      "type": "string"
+                    },
+                    "TypeContrat": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@idContrat",
+                    "TypeContrat"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "@idContrat": {
+                      "type": "string"
+                    },
+                    "TypeContrat": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@idContrat",
+                    "TypeContrat"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Nom",
+            "Prenom",
+            "DateDeNaissance",
+            "AdressePostal",
+            "Tel",
+            "DonnesBancaire",
+            "Email",
+            "ContratsAssocies"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Nom": {
+              "type": "string"
+            },
+            "Prenom": {
+              "type": "string"
+            },
+            "DateDeNaissance": {
+              "type": "string"
+            },
+            "AdressePostal": {
+              "type": "object",
+              "properties": {
+                "Adresse": {
+                  "type": "object",
+                  "properties": {
+                    "NumeroDeRue": {
+                      "type": "string"
+                    },
+                    "NomDeRue": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "NumeroDeRue",
+                    "NomDeRue"
+                  ]
+                },
+                "CodePostal": {
+                  "type": "string"
+                },
+                "Ville": {
+                  "type": "string"
+                },
+                "Pays": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Adresse",
+                "CodePostal",
+                "Ville",
+                "Pays"
+              ]
+            },
+            "Tel": {
+              "type": "string"
+            },
+            "DonnesBancaire": {
+              "type": "object",
+              "properties": {
+                "NomDeBanque": {
+                  "type": "string"
+                },
+                "RIB": {
+                  "type": "string"
+                },
+                "Pays": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "NomDeBanque",
+                "RIB",
+                "Pays"
+              ]
+            },
+            "Email": {
+              "type": "string"
+            },
+            "ContratsAssocies": {
+              "type": "object",
+              "properties": {
+                "ContratClient": {
+                  "type": "object",
+                  "properties": {
+                    "@idContrat": {
+                      "type": "string"
+                    },
+                    "TypeContrat": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@idContrat",
+                    "TypeContrat"
+                  ]
+                }
+              },
+              "required": [
+                "ContratClient"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Nom",
+            "Prenom",
+            "DateDeNaissance",
+            "AdressePostal",
+            "Tel",
+            "DonnesBancaire",
+            "Email",
+            "ContratsAssocies"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Nom": {
+              "type": "string"
+            },
+            "Prenom": {
+              "type": "string"
+            },
+            "DateDeNaissance": {
+              "type": "string"
+            },
+            "AdressePostal": {
+              "type": "object",
+              "properties": {
+                "Adresse": {
+                  "type": "object",
+                  "properties": {
+                    "NumeroDeRue": {
+                      "type": "string"
+                    },
+                    "NomDeRue": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "NumeroDeRue",
+                    "NomDeRue"
+                  ]
+                },
+                "CodePostal": {
+                  "type": "string"
+                },
+                "Ville": {
+                  "type": "string"
+                },
+                "Pays": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "Adresse",
+                "CodePostal",
+                "Ville",
+                "Pays"
+              ]
+            },
+            "Tel": {
+              "type": "string"
+            },
+            "DonnesBancaire": {
+              "type": "object",
+              "properties": {
+                "NomDeBanque": {
+                  "type": "string"
+                },
+                "RIB": {
+                  "type": "string"
+                },
+                "Pays": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "NomDeBanque",
+                "RIB",
+                "Pays"
+              ]
+            },
+            "Email": {
+              "type": "string"
+            },
+            "ContratsAssocies": {
+              "type": "array",
+              "items": [
+                {
+                  "type": "object",
+                  "properties": {
+                    "@idContrat": {
+                      "type": "string"
+                    },
+                    "TypeContrat": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@idContrat",
+                    "TypeContrat"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "properties": {
+                    "@idContrat": {
+                      "type": "string"
+                    },
+                    "TypeContrat": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "@idContrat",
+                    "TypeContrat"
+                  ]
+                }
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Nom",
+            "Prenom",
+            "DateDeNaissance",
+            "AdressePostal",
+            "Tel",
+            "DonnesBancaire",
+            "Email",
+            "ContratsAssocies"
+          ]
+        }
+      ]
+    },
+    "Risques": {
+      "type": "array",
+      "items": [
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        },
+        {
+          "type": "string"
+        }
+      ]
+    },
+    "Employees": {
+      "type": "object",
+      "properties": {
+        "Conseillers": {
+          "type": "array",
+          "items": [
+            {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "Nom": {
+                  "type": "string"
+                },
+                "Prenom": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "Nom",
+                "Prenom"
+              ]
+            },
+            {
+              "type": "object",
+              "properties": {
+                "@id": {
+                  "type": "string"
+                },
+                "Nom": {
+                  "type": "string"
+                },
+                "Prenom": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@id",
+                "Nom",
+                "Prenom"
+              ]
+            }
+          ]
+        }
+      },
+      "required": [
+        "Conseillers"
+      ]
+    },
+    "Contrats": {
+      "type": "array",
+      "items": [
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Auto": {
+              "type": "object",
+              "properties": {
+                "@date_permis": {
+                  "type": "string"
+                },
+                "@date_permis_conjoint": {
+                  "type": "string"
+                },
+                "@date_mise_en_circu": {
+                  "type": "string"
+                },
+                "Marque": {
+                  "type": "string"
+                },
+                "NumImmarticulation": {
+                  "type": "string"
+                },
+                "HautGamme": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "BonusMalus": {
+                  "type": "object",
+                  "properties": {
+                    "Valeur": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Valeur"
+                  ]
+                },
+                "DatesSinistres": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "Depistages": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "@date_permis",
+                "@date_permis_conjoint",
+                "@date_mise_en_circu",
+                "Marque",
+                "NumImmarticulation",
+                "HautGamme",
+                "BonusMalus",
+                "DatesSinistres",
+                "Depistages"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Auto"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Auto": {
+              "type": "object",
+              "properties": {
+                "@date_permis": {
+                  "type": "string"
+                },
+                "@date_permis_conjoint": {
+                  "type": "string"
+                },
+                "@date_mise_en_circu": {
+                  "type": "string"
+                },
+                "Marque": {
+                  "type": "string"
+                },
+                "NumImmarticulation": {
+                  "type": "string"
+                },
+                "HautGamme": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "BonusMalus": {
+                  "type": "object",
+                  "properties": {
+                    "Valeur": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Valeur"
+                  ]
+                },
+                "Depistages": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "@date_permis",
+                "@date_permis_conjoint",
+                "@date_mise_en_circu",
+                "Marque",
+                "NumImmarticulation",
+                "HautGamme",
+                "BonusMalus",
+                "Depistages"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Auto"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Moto": {
+              "type": "object",
+              "properties": {
+                "@date_permis": {
+                  "type": "string"
+                },
+                "@date_mise_en_circu": {
+                  "type": "string"
+                },
+                "Marque": {
+                  "type": "string"
+                },
+                "NumImmarticulation": {
+                  "type": "string"
+                },
+                "BonusMalus": {
+                  "type": "object",
+                  "properties": {
+                    "Valeur": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Valeur"
+                  ]
+                },
+                "DatesSinistres": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "Depistages": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "@date_permis",
+                "@date_mise_en_circu",
+                "Marque",
+                "NumImmarticulation",
+                "BonusMalus",
+                "DatesSinistres",
+                "Depistages"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Moto"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Moto": {
+              "type": "object",
+              "properties": {
+                "@date_permis": {
+                  "type": "string"
+                },
+                "@date_mise_en_circu": {
+                  "type": "string"
+                },
+                "Marque": {
+                  "type": "string"
+                },
+                "NumImmarticulation": {
+                  "type": "string"
+                },
+                "BonusMalus": {
+                  "type": "object",
+                  "properties": {
+                    "Valeur": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Valeur"
+                  ]
+                },
+                "DatesSinistres": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "Depistages": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat"
+                      ]
+                    }
+                  ]
+                }
+              },
+              "required": [
+                "@date_permis",
+                "@date_mise_en_circu",
+                "Marque",
+                "NumImmarticulation",
+                "BonusMalus",
+                "DatesSinistres",
+                "Depistages"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Moto"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Habitation": {
+              "type": "object",
+              "properties": {
+                "AdressePostal": {
+                  "type": "object",
+                  "properties": {
+                    "Adresse": {
+                      "type": "object",
+                      "properties": {
+                        "NumeroDeRue": {
+                          "type": "string"
+                        },
+                        "NomDeRue": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "NumeroDeRue",
+                        "NomDeRue"
+                      ]
+                    },
+                    "CodePostal": {
+                      "type": "string"
+                    },
+                    "Ville": {
+                      "type": "string"
+                    },
+                    "Pays": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Adresse",
+                    "CodePostal",
+                    "Ville",
+                    "Pays"
+                  ]
+                },
+                "SurfaceHabitation": {
+                  "type": "string"
+                },
+                "Dependences": {
+                  "type": "object",
+                  "properties": {
+                    "Dependence": {
+                      "type": "object",
+                      "properties": {
+                        "Libele": {
+                          "type": "string"
+                        },
+                        "Surface": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "Libele",
+                        "Surface"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "Dependence"
+                  ]
+                },
+                "EstimationValeur": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "AdressePostal",
+                "SurfaceHabitation",
+                "Dependences",
+                "EstimationValeur"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Habitation"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Habitation": {
+              "type": "object",
+              "properties": {
+                "AdressePostal": {
+                  "type": "object",
+                  "properties": {
+                    "Adresse": {
+                      "type": "object",
+                      "properties": {
+                        "NumeroDeRue": {
+                          "type": "string"
+                        },
+                        "NomDeRue": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "NumeroDeRue",
+                        "NomDeRue"
+                      ]
+                    },
+                    "CodePostal": {
+                      "type": "string"
+                    },
+                    "Ville": {
+                      "type": "string"
+                    },
+                    "Pays": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "Adresse",
+                    "CodePostal",
+                    "Ville",
+                    "Pays"
+                  ]
+                },
+                "SurfaceHabitation": {
+                  "type": "string"
+                },
+                "Dependences": {
+                  "type": "object",
+                  "properties": {
+                    "Dependence": {
+                      "type": "object",
+                      "properties": {
+                        "Libele": {
+                          "type": "string"
+                        },
+                        "Surface": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "Libele",
+                        "Surface"
+                      ]
+                    }
+                  },
+                  "required": [
+                    "Dependence"
+                  ]
+                },
+                "EstimationValeur": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "AdressePostal",
+                "SurfaceHabitation",
+                "Dependences",
+                "EstimationValeur"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Habitation"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Emprunt": {
+              "type": "object",
+              "properties": {
+                "Montant": {
+                  "type": "string"
+                },
+                "Type": {
+                  "type": "string"
+                },
+                "Duree": {
+                  "type": "object",
+                  "properties": {
+                    "DateDebut": {
+                      "type": "string"
+                    },
+                    "DateFin": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "DateDebut",
+                    "DateFin"
+                  ]
+                }
+              },
+              "required": [
+                "Montant",
+                "Type",
+                "Duree"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Emprunt"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Emprunt": {
+              "type": "object",
+              "properties": {
+                "Montant": {
+                  "type": "string"
+                },
+                "Type": {
+                  "type": "string"
+                },
+                "Duree": {
+                  "type": "object",
+                  "properties": {
+                    "DateDebut": {
+                      "type": "string"
+                    },
+                    "DateFin": {
+                      "type": "string"
+                    }
+                  },
+                  "required": [
+                    "DateDebut",
+                    "DateFin"
+                  ]
+                }
+              },
+              "required": [
+                "Montant",
+                "Type",
+                "Duree"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "Emprunt"
+          ]
+        }
+      ]
+    }
+  },
+  "required": [
+    "@noNamespaceSchemaLocation",
+    "Clients",
+    "Risques",
+    "Employees",
+    "Contrats"
+  ]
 }
