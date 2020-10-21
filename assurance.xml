@@ -32,6 +32,7 @@
                     <TypeContrat>Assurance Habitation</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
+            <ConseillerAssocie idConseiller="1"></ConseillerAssocie>
         </Client>
 
         <Client id = "2">
@@ -59,6 +60,7 @@
                     <TypeContrat>Assurance Motocycle</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
+            <ConseillerAssocie idConseiller="1"></ConseillerAssocie>
         </Client>
 
         <Client id="3">
@@ -90,6 +92,7 @@
                     <TypeContrat>Assurance Habitation</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
+            <ConseillerAssocie idConseiller="1"></ConseillerAssocie>
         </Client>
 
     </Clients>

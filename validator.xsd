@@ -26,9 +26,7 @@
         <xs:sequence>
             <xs:element name="Client" type="ClientType" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
-
     </xs:complexType>
-
 
     <xs:complexType name="ClientType">
         <xs:sequence>
@@ -254,12 +252,12 @@
 
 
     <xs:complexType name="ContratType">
-        <xs:sequence>
+        <xs:choice>
             <xs:element name='Auto' type="AutoType" maxOccurs="1" minOccurs="0"/>
             <xs:element name='Moto' type="MotoType" maxOccurs="1" minOccurs="0"/>
             <xs:element name='Habitation' type="HabitationType" maxOccurs="1" minOccurs="0"/>
             <xs:element name='Emprunt' type="EmpruntType" maxOccurs="1" minOccurs="0"/>
-        </xs:sequence>
+        </xs:choice>
 
         <xs:attribute name='id' type='xs:integer'/>
     </xs:complexType>
