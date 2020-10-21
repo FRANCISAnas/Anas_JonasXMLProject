@@ -12,10 +12,20 @@
 
         <xs:key name="contratKey">
             <xs:selector xpath="CampagnieAssurance/Contrats/Contrat"/>
-            <xs:field xpath="@id"/>
+            <xs:field xpath="@idConseiller"/>
         </xs:key>
 
         <xs:keyref name="dummy2" refer="contratKey">
+            <xs:selector xpath="CampagnieAssurance/Clients/Client/ConseillerAssocie"/>
+            <xs:field xpath="@idContrat"/>
+        </xs:keyref>
+
+        <xs:key name="conseillerKey">
+            <xs:selector xpath="CampagnieAssurance/Employees/Conseillers/Conseiller"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+
+        <xs:keyref name="dummy3" refer="conseillerKey">
             <xs:selector xpath="CampagnieAssurance/Clients/Client/ContratsAssocies/ContratClient"/>
             <xs:field xpath="@idContrat"/>
         </xs:keyref>
@@ -38,6 +48,7 @@
             <xs:element name='DonnesBancaire' type="DonnesBancaireType" maxOccurs="1" minOccurs="0"/> <!-- payment par chèque ou espèce-->
             <xs:element name='Email' type="EmailType" maxOccurs="1" minOccurs="0"/>
             <xs:element name='ContratsAssocies' type="ContratsAssociesType" maxOccurs="1" minOccurs="1"/>
+            <xs:element nillable="true" name='ConseillerAssocie' type="ConseillerAssocieType" maxOccurs="1" minOccurs="1"/>
         </xs:sequence>
         <xs:attribute name='id' type='xs:integer'/>
 
@@ -287,4 +298,8 @@
             <xs:enumeration value="Terrorisme" />
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:complexType name="ConseillerAssocieType">
+        <xs:attribute name='idConseiller' type='xs:integer'/>
+    </xs:complexType>
 </xs:schema>
