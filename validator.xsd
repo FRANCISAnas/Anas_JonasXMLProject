@@ -40,7 +40,6 @@
 
     <xs:complexType name="ClientType">
         <xs:sequence>
-            <xs:element nillable="true" name='ConseillerAssocie' type="ConseillerAssocieType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='Nom' type="xs:string"/>
             <xs:element name='Prenom' type="xs:string"/>
             <xs:element name='DateDeNaissance' type="xs:date"/>
@@ -49,6 +48,7 @@
             <xs:element name='DonnesBancaire' type="DonnesBancaireType" minOccurs="0"/> <!-- payment par chèque ou espèce-->
             <xs:element name='Email' type="EmailType" minOccurs="0"/><!-- il doit obligatoirement avoir un numéro de téléphone du coup il lui est facultatif d'avoir un email -->
             <xs:element name='ContratsAssocies' type="ContratsAssociesType"/>
+            <xs:element nillable="true" name='ConseillerAssocie' type="ConseillerAssocieType" maxOccurs="1" minOccurs="1"/>
         </xs:sequence>
         <xs:attribute name='id' type='xs:integer'/>
     </xs:complexType>
