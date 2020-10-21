@@ -15,10 +15,8 @@
             <xs:field xpath="@id"/>
         </xs:key>
 
-        <xs:keyref name="clientWithContrat" refer="contratKey">
+        <xs:keyref name="clientAvecContrat" refer="contratKey">
             <xs:selector xpath="Clients/Client/ContratsAssocies/ContratClient"/>
-        <xs:keyref name="dummy2" refer="contratKey">
-            <xs:selector xpath="CampagnieAssurance/Clients/Client/ConseillerAssocie"/>
             <xs:field xpath="@idContrat"/>
         </xs:keyref>
 
@@ -27,9 +25,9 @@
             <xs:field xpath="@id"/>
         </xs:key>
 
-        <xs:keyref name="dummy3" refer="conseillerKey">
+        <xs:keyref name="clientAvecConseiller" refer="conseillerKey">
             <xs:selector xpath="CampagnieAssurance/Clients/Client/ContratsAssocies/ContratClient"/>
-            <xs:field xpath="@idContrat"/>
+            <xs:field xpath="@idConseiller"/>
         </xs:keyref>
 
     </xs:element>
@@ -42,14 +40,6 @@
 
     <xs:complexType name="ClientType">
         <xs:sequence>
-            <xs:element name='Nom' type="xs:string" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='Prenom' type="xs:string" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='DateDeNaissance' type="xs:date" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='AdressePostal' type="AdressePostalType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='Tel' type="TelType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='DonnesBancaire' type="DonnesBancaireType" maxOccurs="1" minOccurs="0"/> <!-- payment par chèque ou espèce-->
-            <xs:element name='Email' type="EmailType" maxOccurs="1" minOccurs="0"/>
-            <xs:element name='ContratsAssocies' type="ContratsAssociesType" maxOccurs="1" minOccurs="1"/>
             <xs:element nillable="true" name='ConseillerAssocie' type="ConseillerAssocieType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='Nom' type="xs:string"/>
             <xs:element name='Prenom' type="xs:string"/>
@@ -120,7 +110,7 @@
             <xs:element name='HautGamme' type="HautGammeType" minOccurs="0"/>
             <xs:element name='BonusMalus' type="BonusMalusType"/>
             <xs:element name='DatesSinistres' type="DatesSinistresType" minOccurs="0"/>
-            <xs:element name='Depistages' type="DepistagesType"minOccurs="0"/>
+            <xs:element name='Depistages' type="DepistagesType" minOccurs="0"/>
         </xs:sequence>
 
         <xs:attribute name='date_permis' type='xs:date'/>
