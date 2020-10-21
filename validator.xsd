@@ -3,18 +3,20 @@
     <xs:element name="CampagnieAssurance">
         <xs:complexType>
             <xs:sequence>
-                <xs:element name='Clients' type="ClientsType" maxOccurs="1" minOccurs="0"/>
-                <xs:element name='Risques' type="RisquesType" maxOccurs="1" minOccurs="1"/>
-                <xs:element name='Employees' type="EmployeesType" maxOccurs="1" minOccurs="0"/>
-                <xs:element name='Contrats' type="ContratsType" maxOccurs="1" minOccurs="0"/>
+                <xs:element name='Clients' type="ClientsType" minOccurs="0"/>
+                <xs:element name='Risques' type="RisquesType" minOccurs="1"/>
+                <xs:element name='Employees' type="EmployeesType" minOccurs="0"/>
+                <xs:element name='Contrats' type="ContratsType" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
 
         <xs:key name="contratKey">
-            <xs:selector xpath="CampagnieAssurance/Contrats/Contrat"/>
-            <xs:field xpath="@idConseiller"/>
+            <xs:selector xpath="Contrats/Contrat"/>
+            <xs:field xpath="@id"/>
         </xs:key>
 
+        <xs:keyref name="clientWithContrat" refer="contratKey">
+            <xs:selector xpath="Clients/Client/ContratsAssocies/ContratClient"/>
         <xs:keyref name="dummy2" refer="contratKey">
             <xs:selector xpath="CampagnieAssurance/Clients/Client/ConseillerAssocie"/>
             <xs:field xpath="@idContrat"/>
@@ -49,17 +51,24 @@
             <xs:element name='Email' type="EmailType" maxOccurs="1" minOccurs="0"/>
             <xs:element name='ContratsAssocies' type="ContratsAssociesType" maxOccurs="1" minOccurs="1"/>
             <xs:element nillable="true" name='ConseillerAssocie' type="ConseillerAssocieType" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Nom' type="xs:string"/>
+            <xs:element name='Prenom' type="xs:string"/>
+            <xs:element name='DateDeNaissance' type="xs:date"/>
+            <xs:element name='AdressePostal' type="AdressePostalType"/>
+            <xs:element name='Tel' type="TelType"/>
+            <xs:element name='DonnesBancaire' type="DonnesBancaireType" minOccurs="0"/> <!-- payment par chèque ou espèce-->
+            <xs:element name='Email' type="EmailType" minOccurs="0"/><!-- il doit obligatoirement avoir un numéro de téléphone du coup il lui est facultatif d'avoir un email -->
+            <xs:element name='ContratsAssocies' type="ContratsAssociesType"/>
         </xs:sequence>
         <xs:attribute name='id' type='xs:integer'/>
-
     </xs:complexType>
 
     <xs:complexType name="AdressePostalType">
         <xs:sequence>
-            <xs:element name='Adresse' type="AdresseType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='CodePostal' type="CodePostalType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='Ville' type="xs:string" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='Pays' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='Adresse' type="AdresseType"/>
+            <xs:element name='CodePostal' type="CodePostalType"/>
+            <xs:element name='Ville' type="xs:string"/>
+            <xs:element name='Pays' type="xs:string"/>
         </xs:sequence>
 
     </xs:complexType>
@@ -72,11 +81,10 @@
 
     <xs:complexType name="DonnesBancaireType">
         <xs:sequence>
-            <xs:element name='NomDeBanque' type="xs:string" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='RIB' type="RIBType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='Pays' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='NomDeBanque' type="xs:string" />
+            <xs:element name='RIB' type="RIBType"/>
+            <xs:element name='Pays' type="xs:string"/>
         </xs:sequence>
-
     </xs:complexType>
 
     <xs:simpleType name="EmailType">
@@ -93,8 +101,8 @@
 
     <xs:complexType name="AdresseType">
         <xs:sequence>
-            <xs:element name='NumeroDeRue' type="xs:integer" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='NomDeRue' type="xs:string" maxOccurs="1" minOccurs="1"/>
+            <xs:element name='NumeroDeRue' type="xs:integer"/>
+            <xs:element name='NomDeRue' type="xs:string"/>
         </xs:sequence>
     </xs:complexType>
 
@@ -107,12 +115,12 @@
 
     <xs:complexType name="AutoType">
         <xs:sequence>
-            <xs:element name='Marque' type="xs:string" maxOccurs="1" minOccurs="1"/> <!-- Une voiture est issue d'une seule marque-->
-            <xs:element name='NumImmarticulation' type="NumImmarticulationType" maxOccurs="1" minOccurs="1"/> <!-- Num imm est unique-->
-            <xs:element name='HautGamme' type="HautGammeType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='BonusMalus' type="BonusMalusType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='DatesSinistres' type="DatesSinistresType" maxOccurs="1" minOccurs="0"/>
-            <xs:element name='Depistages' type="DepistagesType" maxOccurs="1" minOccurs="0"/>
+            <xs:element name='Marque' type="xs:string" /> <!-- Une voiture est issue d'une seule marque-->
+            <xs:element name='NumImmarticulation' type="NumImmarticulationType"/> <!-- Num imm est unique-->
+            <xs:element name='HautGamme' type="HautGammeType" minOccurs="0"/>
+            <xs:element name='BonusMalus' type="BonusMalusType"/>
+            <xs:element name='DatesSinistres' type="DatesSinistresType" minOccurs="0"/>
+            <xs:element name='Depistages' type="DepistagesType"minOccurs="0"/>
         </xs:sequence>
 
         <xs:attribute name='date_permis' type='xs:date'/>
