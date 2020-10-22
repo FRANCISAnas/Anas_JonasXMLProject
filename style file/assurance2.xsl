@@ -12,7 +12,7 @@
         </head>
 
         <body>
-            <h1>Voici tous les clients ayant au moins <xsl:value-of select="$contractsNumber"/> contrat dans la base de données</h1>
+            <h1 style="text-align:center;">Voici tous les clients ayant au moins <xsl:value-of select="$contractsNumber"/> contrat(s) dans la base de données</h1>
             <div class="w3-row-padding">
                 <!--w3-col m8 l9-->
                 <xsl:apply-templates select="Clients/Client[count(ContratsAssocies/ContratClient)>0]"/>

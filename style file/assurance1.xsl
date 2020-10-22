@@ -9,9 +9,15 @@
             <head>
                 <title>Contrat d'assurace automobile</title>
             </head>
+            <style>
+                .center{
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+            </style>
             <body>
-                <h1>Voici tous les contrats automobile présente dans la base de données</h1>
-                <table border="1">
+                <h1 style="text-align:center;">Voici tous les contrats automobile présente dans la base de données</h1>
+                <table border="1" class="center">
                     <tr bgcolor="#2ecc71">
                         <th align="left">ID</th>
                         <th align="left">Date_permis</th>
@@ -29,29 +35,27 @@
     </xsl:template>
 
     <xsl:template match="Auto">
-        <xsl:element name="dates">
-            <tr>
-                <th align="left">
-                    <xsl:value-of select="../@id"/>
-                </th>
+        <tr>
+            <th align="left">
+                <xsl:value-of select="../@id"/>
+            </th>
 
-                <th align="left">
-                    <xsl:value-of select="@date_permis"/>
-                </th>
+            <th align="left">
+                <xsl:value-of select="@date_permis"/>
+            </th>
 
-                <th align="left">
-                    <xsl:value-of select="@date_permis_conjoint"/>
-                </th>
+            <th align="left">
+                <xsl:value-of select="@date_permis_conjoint"/>
+            </th>
 
-                <th align="left">
-                    <xsl:value-of select="@date_mise_en_circu"/>
-                </th>
-                <xsl:apply-templates select="Marque" ></xsl:apply-templates>
-                <xsl:apply-templates select="NumImmarticulation" ></xsl:apply-templates>
-                <xsl:apply-templates select="HautGamme/Prix" ></xsl:apply-templates>
-                <xsl:apply-templates select="BonusMalus/Valeur" ></xsl:apply-templates>
-            </tr>
-        </xsl:element>
+            <th align="left">
+                <xsl:value-of select="@date_mise_en_circu"/>
+            </th>
+            <xsl:apply-templates select="Marque" ></xsl:apply-templates>
+            <xsl:apply-templates select="NumImmarticulation" ></xsl:apply-templates>
+            <xsl:apply-templates select="HautGamme/Prix" ></xsl:apply-templates>
+            <xsl:apply-templates select="BonusMalus/Valeur" ></xsl:apply-templates>
+        </tr>
     </xsl:template>
 
     <xsl:template  match="Auto/Marque">
