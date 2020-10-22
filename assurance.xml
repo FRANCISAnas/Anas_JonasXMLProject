@@ -27,7 +27,6 @@
                 <ContratClient idContrat="1">
                     <TypeContrat>Assurance automobile</TypeContrat>
                 </ContratClient>
-
                 <ContratClient idContrat="5">
                     <TypeContrat>Assurance Habitation</TypeContrat>
                 </ContratClient>

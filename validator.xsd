@@ -101,7 +101,7 @@
             <xs:element name='HautGamme' type="HautGammeType" minOccurs="0"/>
             <xs:element name='BonusMalus' type="BonusMalusType"/>
             <xs:element name='DatesSinistres' type="DatesSinistresType" minOccurs="0"/>
-            <xs:element name='Depistages' type="DepistagesType"minOccurs="0"/>
+            <xs:element name='Depistages' type="DepistagesType" minOccurs="0"/>
         </xs:sequence>
 
         <xs:attribute name='date_permis' type='xs:date'/>
@@ -120,7 +120,7 @@
 
     <xs:complexType name="MotoType">
         <xs:sequence>
-            <xs:element name='Marque' type="xs:string" maxOccurs="1" minOccurs="1"/> <!-- Un motp est issue d'une seule marque-->
+            <xs:element name='Marque' type="xs:string"/>
             <xs:element name='NumImmarticulation' type="NumImmarticulationType" maxOccurs="1" minOccurs="1"/> <!-- Num imm est unique-->
             <xs:element name='BonusMalus' type="BonusMalusType" maxOccurs="1" minOccurs="1"/>
             <xs:element name='DatesSinistres' type="DatesSinistresType" maxOccurs="1" minOccurs="0"/>
