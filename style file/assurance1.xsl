@@ -25,7 +25,7 @@
                         <th align="left">Prix</th>
                         <th align="left">Bonus/Malus</th>
                     </tr>
-                    <xsl:apply-templates select="Contrats/Contrat/Auto"></xsl:apply-templates>
+                    <xsl:apply-templates select="Contrats/Contrat/Auto"/>
                 </table>
             </body>
         </html>
@@ -49,10 +49,10 @@
                 <th align="left">
                     <xsl:value-of select="@date_mise_en_circu"/>
                 </th>
-                <xsl:apply-templates select="Marque" ></xsl:apply-templates>
-                <xsl:apply-templates select="NumImmarticulation" ></xsl:apply-templates>
-                <xsl:apply-templates select="HautGamme/Prix" ></xsl:apply-templates>
-                <xsl:apply-templates select="BonusMalus/Valeur" ></xsl:apply-templates>
+                <xsl:apply-templates select="Marque"/>
+                <xsl:apply-templates select="NumImmarticulation"/>
+                <xsl:apply-templates select="HautGamme/Prix"/>
+                <xsl:apply-templates select="BonusMalus/Valeur"/>
             </tr>
         </xsl:element>
     </xsl:template>
