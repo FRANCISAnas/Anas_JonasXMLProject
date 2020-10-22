@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
+
+   <!-- <xsl:output encoding="UTF-8" indent="yes" method="xml" />-->
 <!-- Toto est un conseiller et il veut voir tous les contrats d'assurance de type automobile dans la base de données -->
     <xsl:template match="CampagnieAssurance">
         <html>
