@@ -44,13 +44,17 @@
                 <img src="../images/client.png" alt="Client" style="width:80%"/>
             </center>
             <div class="w3-container">
-                <p>Id: <xsl:value-of select="@id"></xsl:value-of>
+                <p>Id:
+                    <xsl:value-of select="@id"/>
                 <br/>
-                    Date de naissance: <xsl:value-of select="DateDeNaissance"></xsl:value-of>
+                    Date de naissance:
+                    <xsl:value-of select="DateDeNaissance"/>
                 <br/>
-                    Adresse Postale: <xsl:apply-templates select="AdressePostal" ></xsl:apply-templates>
+                    Adresse Postale:
+                    <xsl:apply-templates select="AdressePostal"/>
                 <br/>
-                    RIB: <xsl:value-of select="DonnesBancaire/RIB"></xsl:value-of>
+                    RIB:
+                    <xsl:value-of select="DonnesBancaire/RIB"/>
                 </p>
             </div>
         </div>
