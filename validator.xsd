@@ -15,9 +15,19 @@
             <xs:field xpath="@id"/>
         </xs:key>
 
-        <xs:keyref name="clientWithContrat" refer="contratKey">
+        <xs:keyref name="clientAvecContrat" refer="contratKey">
             <xs:selector xpath="Clients/Client/ContratsAssocies/ContratClient"/>
             <xs:field xpath="@idContrat"/>
+        </xs:keyref>
+
+        <xs:key name="conseillerKey">
+            <xs:selector xpath="CampagnieAssurance/Employees/Conseillers/Conseiller"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+
+        <xs:keyref name="clientAvecConseiller" refer="conseillerKey">
+            <xs:selector xpath="CampagnieAssurance/Clients/Client/ContratsAssocies/ContratClient"/>
+            <xs:field xpath="@idConseiller"/>
         </xs:keyref>
 
     </xs:element>
@@ -26,9 +36,7 @@
         <xs:sequence>
             <xs:element name="Client" type="ClientType" maxOccurs="unbounded" minOccurs="0"/>
         </xs:sequence>
-
     </xs:complexType>
-
 
     <xs:complexType name="ClientType">
         <xs:sequence>
@@ -40,6 +48,7 @@
             <xs:element name='DonnesBancaire' type="DonnesBancaireType" minOccurs="0"/> <!-- payment par chèque ou espèce-->
             <xs:element name='Email' type="EmailType" minOccurs="0"/><!-- il doit obligatoirement avoir un numéro de téléphone du coup il lui est facultatif d'avoir un email -->
             <xs:element name='ContratsAssocies' type="ContratsAssociesType"/>
+            <xs:element nillable="true" name='ConseillerAssocie' type="ConseillerAssocieType" maxOccurs="1" minOccurs="1"/>
         </xs:sequence>
         <xs:attribute name='id' type='xs:integer'/>
     </xs:complexType>
@@ -267,6 +276,7 @@
         <xs:sequence>
             <xs:element name='TypeContrat' type="TypeContratEnum"/>
         </xs:sequence>
+
         <xs:attribute name='idContrat' type='xs:integer'/>
     </xs:complexType>
     <xs:simpleType name="TypeContratEnum">
@@ -287,4 +297,8 @@
             <xs:enumeration value="Terrorisme" />
         </xs:restriction>
     </xs:simpleType>
+
+    <xs:complexType name="ConseillerAssocieType">
+        <xs:attribute name='idConseiller' type='xs:integer'/>
+    </xs:complexType>
 </xs:schema>
