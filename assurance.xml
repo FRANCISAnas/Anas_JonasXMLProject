@@ -25,10 +25,10 @@
             <Email>anas.francis@etu.unice.fr</Email>
             <ContratsAssocies>
                 <ContratClient idContrat="1">
-                    <TypeContrat>Assurance automobile</TypeContrat>
+                    <TypeContrat>Auto</TypeContrat>
                 </ContratClient>
                 <ContratClient idContrat="5">
-                    <TypeContrat>Assurance Habitation</TypeContrat>
+                    <TypeContrat>Moto</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
         </Client>
@@ -55,7 +55,7 @@
             <Email>amissancoyot@gmail.com</Email>
             <ContratsAssocies>
                 <ContratClient idContrat="3">
-                    <TypeContrat>Assurance Motocycle</TypeContrat>
+                    <TypeContrat>Moto</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
         </Client>
@@ -83,10 +83,10 @@
 
             <ContratsAssocies>
                 <ContratClient idContrat="2">
-                    <TypeContrat>Assurance automobile</TypeContrat>
+                    <TypeContrat>Auto</TypeContrat>
                 </ContratClient>
                 <ContratClient idContrat="6">
-                    <TypeContrat>Assurance Habitation</TypeContrat>
+                    <TypeContrat>Habitation</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
         </Client>
