@@ -38,29 +38,26 @@
     </xsl:template>
 
     <xsl:template match="Auto">
-        <xsl:element name="dates">
-            <tr>
-                <th align="left">
-                    <xsl:value-of select="../@id"/>
-                </th>
+        <tr>
+            <th align="left">
+                <xsl:value-of select="../@id"/>
+            </th>
+            <th align="left">
+                <xsl:value-of select="@date_permis"/>
+            </th>
+            <th align="left">
+                <xsl:value-of select="@date_permis_conjoint"/>
+            </th>
 
-                <th align="left">
-                    <xsl:value-of select="@date_permis"/>
-                </th>
+            <th align="left">
+                <xsl:value-of select="@date_mise_en_circu"/>
+            </th>
+            <xsl:apply-templates select="Marque"/>
+            <xsl:apply-templates select="NumImmarticulation"/>
+            <xsl:apply-templates select="HautGamme/Prix"/>
+            <xsl:apply-templates select="BonusMalus/Valeur"/>
+        </tr>
 
-                <th align="left">
-                    <xsl:value-of select="@date_permis_conjoint"/>
-                </th>
-
-                <th align="left">
-                    <xsl:value-of select="@date_mise_en_circu"/>
-                </th>
-                <xsl:apply-templates select="Marque"/>
-                <xsl:apply-templates select="NumImmarticulation"/>
-                <xsl:apply-templates select="HautGamme/Prix"/>
-                <xsl:apply-templates select="BonusMalus/Valeur"/>
-            </tr>
-        </xsl:element>
     </xsl:template>
 
     <xsl:template  match="Auto/Marque">
