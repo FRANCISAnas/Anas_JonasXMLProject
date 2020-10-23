@@ -19,7 +19,7 @@
                 }
             </style>
             <body>
-                <h1 style="text-align:center;">Voici tous les contrats automobile présente dans la base de données</h1>
+                <h1 style="text-align:center;">Voici tous les contrats automobiles présents dans la base de données</h1>
                 <table border="1" class="center">
                     <tr bgcolor="#2ecc71">
                         <th align="left">ID</th>
