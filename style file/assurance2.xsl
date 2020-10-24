@@ -7,15 +7,15 @@
         <xsl:variable name="contractsNumber" select="1"/>
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
-            <title>Clients Ayant au moins 2 contrats dans la base </title>
-            <link rel="stylesheet" href="w3.css"/>
+            <title>Clients Ayant au moins <xsl:value-of select="$contractsNumber+1"/> contrat(s) dans la base </title>
+            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
         </head>
 
         <body>
-            <h1 style="text-align:center;">Voici tous les clients ayant au moins <xsl:value-of select="$contractsNumber"/> contrat(s) dans la base de données</h1>
+            <h1 style="text-align:center;">Voici tous les clients ayant au moins <xsl:value-of select="$contractsNumber+1"/> contrat(s) dans la base de données</h1>
             <div class="w3-row-padding">
                 <!--w3-col m8 l9-->
-                <xsl:apply-templates select="Clients/Client[count(ContratsAssocies/ContratClient)>$contractsNumber]"/>
+                <xsl:apply-templates select="Clients/Client[count(ContratsAssocies/ContratClient)>=$contractsNumber+1]"/>
             </div>
             <div class="w3-container w3-teal">
                 <center><p>Copright Francis-Jonas 2019-2020 </p></center>

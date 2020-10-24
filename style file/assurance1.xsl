@@ -19,7 +19,7 @@
                 }
             </style>
             <body>
-                <h1 style="text-align:center;">Voici tous les contrats automobile présente dans la base de données</h1>
+                <h1 style="text-align:center;">Voici tous les contrats automobiles présents dans la base de données</h1>
                 <table border="1" class="center">
                     <tr bgcolor="#2ecc71">
                         <th align="left">ID</th>
@@ -38,29 +38,26 @@
     </xsl:template>
 
     <xsl:template match="Auto">
-        <xsl:element name="dates">
-            <tr>
-                <th align="left">
-                    <xsl:value-of select="../@id"/>
-                </th>
+        <tr>
+            <th align="left">
+                <xsl:value-of select="../@id"/>
+            </th>
+            <th align="left">
+                <xsl:value-of select="@date_permis"/>
+            </th>
+            <th align="left">
+                <xsl:value-of select="@date_permis_conjoint"/>
+            </th>
 
-                <th align="left">
-                    <xsl:value-of select="@date_permis"/>
-                </th>
+            <th align="left">
+                <xsl:value-of select="@date_mise_en_circu"/>
+            </th>
+            <xsl:apply-templates select="Marque"/>
+            <xsl:apply-templates select="NumImmarticulation"/>
+            <xsl:apply-templates select="HautGamme/Prix"/>
+            <xsl:apply-templates select="BonusMalus/Valeur"/>
+        </tr>
 
-                <th align="left">
-                    <xsl:value-of select="@date_permis_conjoint"/>
-                </th>
-
-                <th align="left">
-                    <xsl:value-of select="@date_mise_en_circu"/>
-                </th>
-                <xsl:apply-templates select="Marque"/>
-                <xsl:apply-templates select="NumImmarticulation"/>
-                <xsl:apply-templates select="HautGamme/Prix"/>
-                <xsl:apply-templates select="BonusMalus/Valeur"/>
-            </tr>
-        </xsl:element>
     </xsl:template>
 
     <xsl:template  match="Auto/Marque">
