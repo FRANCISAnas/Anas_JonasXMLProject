@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<?xml-stylesheet type="text/xsl" href="style file/assurance2.xsl" ?>
+<?xml-stylesheet type="text/xsl" href="style file/assurance3.xsl" ?>
 <CampagnieAssurance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:noNamespaceSchemaLocation="validator.xsd">
 

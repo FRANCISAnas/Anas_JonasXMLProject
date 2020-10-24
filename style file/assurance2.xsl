@@ -8,7 +8,7 @@
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
             <title>Clients Ayant au moins 2 contrats dans la base </title>
-            <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"/>
+            <link rel="stylesheet" href="w3.css"/>
         </head>
 
         <body>
@@ -41,7 +41,7 @@
                 </h2>
             </div>
             <center>
-                <img src="../images/client.png" alt="Client" style="width:80%"/>
+                <img src="images/client.png" alt="Client" style="width:80%"/>
             </center>
             <div class="w3-container">
                 <p>Id:
