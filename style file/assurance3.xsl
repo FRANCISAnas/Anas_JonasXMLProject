@@ -22,6 +22,10 @@
 
         <body>
             <xsl:apply-templates select="Conseillers/Conseiller"/>
+
+            <div class="w3-container w3-teal">
+                <center><p>Copright Francis-Jonas 2019-2020 </p></center>
+            </div>
         </body>
     </html>
 </xsl:template>
@@ -49,8 +53,7 @@
                 </h4><h4 style="text-shadow:1px 1px 0 #444">Nombre totale de contrats de ses clients:
                 <xsl:value-of  select="count(../../Clients/Client[ConseillerAssocie/@idConseiller=$conseillerId]/ContratsAssocies/ContratClient)"/>
             </h4>
-                <br/>
-                <h4  style="text-shadow:1px 1px 0 #444">Listes des risques que contiennent les contrats: <xsl:value-of select="$conseillerId"/></h4></td>
+        </td>
             <td width="30%">
                 <table style="width:100%;max-height: 210px;overflow-y:scroll" >
 
@@ -77,5 +80,8 @@
         <td style="width:20%; text-align:center;"><xsl:value-of select="count(ContratsAssocies/ContratClient)"/></td>
     </tr>
 </xsl:template>
+    <xsl:template match="Risque">
+        <xsl:value-of select="."/>
+    </xsl:template>
 
 </xsl:stylesheet>
