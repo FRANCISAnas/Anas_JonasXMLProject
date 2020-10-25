@@ -3,11 +3,10 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output encoding="UTF-8" indent="yes" method="xml" />
     <!--
-         le directeur aimerait visualiser tous les conseillers
-         Pour chaque conseiller il aimerait savoir
-         le nom et prenom de ce conseiller ainsi que son Id
-         la liste ordonnée par nombre de contrats des clients qu'ils conseillent
-         la somme de tous les contrats des clients de ce conseiller
+         le directeur aimerait visualiser tous les conseillers.
+          Pour chaque conseiller il aimerait savoir le nom et prénom de ce conseiller ainsi
+          que son Id sous format d’une  liste des clients qu'ils conseillent,
+          la somme de tous les contrats des clients de ce conseiller.
      -->
 <xsl:template match="CampagnieAssurance">
 
