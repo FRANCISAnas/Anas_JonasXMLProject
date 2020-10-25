@@ -136,11 +136,11 @@
         <xs:sequence>
             <xs:element name='TypeContrat' type="TypeContratEnum"/>
         </xs:sequence>
-        <xs:attribute name='idContrat' type='xs:integer'/>
+        <xs:attribute name='idContrat' type='xs:integer' use="required"/>
     </xs:complexType>
 
     <xs:complexType name="ConseillerAssocieType">
-        <xs:attribute name='idConseiller' type='xs:integer'/>
+        <xs:attribute name='idConseiller' type='xs:integer' use="required"/>
     </xs:complexType>
 
     <!-- ********************* Contrats  ********************* -->
@@ -185,9 +185,9 @@
             <xs:element name="Risque" type="AutoRisque"/>
         </xs:sequence>
 
-        <xs:attribute name='date_permis' type='xs:date'/>
+        <xs:attribute name='date_permis' type='xs:date' use="required"/>
         <xs:attribute name='date_permis_conjoint' type='xs:date'/>
-        <xs:attribute name='date_mise_en_circu' type='xs:date'/>
+        <xs:attribute name='date_mise_en_circu' type='xs:date' use="required"/>
     </xs:complexType>
 
 
@@ -203,7 +203,7 @@
             <xs:element name='Resultat' type="xs:boolean"/>
             <xs:element name='NomDepistage' type="xs:string"/>
         </xs:sequence>
-        <xs:attribute name="date" type="xs:date"/>
+        <xs:attribute name="date" type="xs:date" use="required"/>
     </xs:complexType>
 
     <xs:complexType name="DatesSinistresType">
@@ -227,8 +227,8 @@
             <xs:element name='Depistages' type="DepistagesType" minOccurs="0"/>
             <xs:element name="Risque" type="MotoRisque"/>
         </xs:sequence>
-        <xs:attribute name='date_permis' type='xs:date'/>
-        <xs:attribute name='date_mise_en_circu' type='xs:date'/>
+        <xs:attribute name='date_permis' type='xs:date' use="required"/>
+        <xs:attribute name='date_mise_en_circu' type='xs:date' use="required"/>
     </xs:complexType>
 
 
