@@ -1,5 +1,15 @@
 {
   "@noNamespaceSchemaLocation": "validator.xsd",
+  "nomCompagnie": "AnasJonasCompagnie",
+  "adressePostale": {
+    "Adresse": {
+      "NumeroDeRue": "2400",
+      "NomDeRue": "Routes des dolines"
+    },
+    "CodePostal": "06560",
+    "Ville": "Biot",
+    "Pays": "France"
+  },
   "Clients": [
     {
       "@id": "1",
@@ -25,13 +35,16 @@
       "ContratsAssocies": [
         {
           "@idContrat": "1",
-          "TypeContrat": "Assurance automobile"
+          "TypeContrat": "Auto"
         },
         {
           "@idContrat": "5",
-          "TypeContrat": "Assurance Habitation"
+          "TypeContrat": "Moto"
         }
-      ]
+      ],
+      "ConseillerAssocie": {
+        "@idConseiller": "1"
+      }
     },
     {
       "@id": "2",
@@ -57,14 +70,17 @@
       "ContratsAssocies": {
         "ContratClient": {
           "@idContrat": "3",
-          "TypeContrat": "Assurance Motocycle"
+          "TypeContrat": "Moto"
         }
+      },
+      "ConseillerAssocie": {
+        "@idConseiller": "1"
       }
     },
     {
       "@id": "3",
       "Nom": "DUPONT",
-      "Prenom": "Angélique",
+      "Prenom": "Ronald",
       "DateDeNaissance": "1995-06-03",
       "AdressePostal": {
         "Adresse": {
@@ -85,52 +101,42 @@
       "ContratsAssocies": [
         {
           "@idContrat": "2",
-          "TypeContrat": "Assurance automobile"
+          "TypeContrat": "Auto"
         },
         {
           "@idContrat": "6",
-          "TypeContrat": "Assurance Habitation"
+          "TypeContrat": "Habitation"
         }
-      ]
+      ],
+      "ConseillerAssocie": {
+        "@idConseiller": "2"
+      }
     }
   ],
-  "Risques": [
-    "CatastrophesNaturelle",
-    "Incendie",
-    "DegatsDesEaux",
-    "Accident",
-    "Vols",
-    "Terrorisme"
+  "Conseillers": [
+    {
+      "@id": "1",
+      "Nom": "Toto",
+      "Prenom": "les pierres"
+    },
+    {
+      "@id": "2",
+      "Nom": "Jean-Marie",
+      "Prenom": "Christophe"
+    }
   ],
-  "Employees": {
-    "Conseillers": [
-      {
-        "@id": "1",
-        "Nom": "Toto",
-        "Prenom": "les pierres"
-      },
-      {
-        "@id": "2",
-        "Nom": "Jean-Marie",
-        "Prenom": "Christophe"
-      }
-    ]
-  },
   "Contrats": [
     {
       "@id": "1",
+      "@date_debut_contrat": "2020-10-05",
       "Auto": {
         "@date_permis": "2009-05-10",
         "@date_permis_conjoint": "2012-06-26",
         "@date_mise_en_circu": "2014-07-20",
         "Marque": "fiat",
         "NumImmarticulation": "FT-252-LZ",
-        "HautGamme": [
-          "11000"
-        ],
-        "BonusMalus": {
-          "Valeur": "156"
-        },
+        "HautGamme": "11000",
+        "BonusMalus": "156",
         "DatesSinistres": [
           "2016-04-13",
           "2018-09-19"
@@ -138,51 +144,53 @@
         "Depistages": [
           {
             "@date": "2002-09-24",
-            "Resultat": "Positive"
+            "Resultat": "true",
+            "NomDepistage": "Alcoolémie"
           },
           {
             "@date": "2005-05-30",
-            "Resultat": "Negative"
+            "Resultat": "false",
+            "NomDepistage": "Alcoolémie"
           }
-        ]
+        ],
+        "Risque": "Tout Risques"
       }
     },
     {
       "@id": "2",
+      "@date_debut_contrat": "2017-03-10",
       "Auto": {
         "@date_permis": "2012-08-20",
         "@date_permis_conjoint": "2015-02-15",
         "@date_mise_en_circu": "2013-07-10",
         "Marque": "Audi",
         "NumImmarticulation": "TU-324-IY",
-        "HautGamme": [
-          "21000"
-        ],
-        "BonusMalus": {
-          "Valeur": "300"
-        },
+        "HautGamme": "21000",
+        "BonusMalus": "300",
         "Depistages": [
           {
             "@date": "2014-04-24",
-            "Resultat": "Negative"
+            "Resultat": "false",
+            "NomDepistage": "Alcoolémie"
           },
           {
             "@date": "2015-05-16",
-            "Resultat": "Negative"
+            "Resultat": "false",
+            "NomDepistage": "Alcoolémie"
           }
-        ]
+        ],
+        "Risque": "tous accidents"
       }
     },
     {
       "@id": "3",
+      "@date_debut_contrat": "2019-05-07",
       "Moto": {
         "@date_permis": "2019-02-15",
         "@date_mise_en_circu": "2019-03-30",
         "Marque": "BMW",
         "NumImmarticulation": "KK-524-ZE",
-        "BonusMalus": {
-          "Valeur": "5523"
-        },
+        "BonusMalus": "5523",
         "DatesSinistres": [
           "2017-04-13",
           "2016-08-26"
@@ -190,25 +198,27 @@
         "Depistages": [
           {
             "@date": "2005-05-30",
-            "Resultat": "0"
+            "Resultat": "false",
+            "NomDepistage": "Alcoolémie"
           },
           {
             "@date": "-2005-06-20",
-            "Resultat": "0"
+            "Resultat": "false",
+            "NomDepistage": "Alcoolémie"
           }
-        ]
+        ],
+        "Risque": "Tout Risques"
       }
     },
     {
       "@id": "4",
+      "@date_debut_contrat": "2017-05-04",
       "Moto": {
         "@date_permis": "2016-02-15",
         "@date_mise_en_circu": "2016-03-30",
         "Marque": "Honda",
-        "NumImmarticulation": "KK-524-ZE",
-        "BonusMalus": {
-          "Valeur": "5523"
-        },
+        "NumImmarticulation": "JD-931-DB",
+        "BonusMalus": "5523",
         "DatesSinistres": [
           "2014-01-13",
           "2016-08-26"
@@ -216,17 +226,21 @@
         "Depistages": [
           {
             "@date": "2017-05-30",
-            "Resultat": "Négative"
+            "Resultat": "false",
+            "NomDepistage": "Alcoolémie"
           },
           {
             "@date": "-2017-07-20",
-            "Resultat": "Positive"
+            "Resultat": "true",
+            "NomDepistage": "Alcoolémie"
           }
-        ]
+        ],
+        "Risque": "personnelle du conducteur"
       }
     },
     {
       "@id": "5",
+      "@date_debut_contrat": "2015-06-20",
       "Habitation": {
         "AdressePostal": {
           "Adresse": {
@@ -240,15 +254,18 @@
         "SurfaceHabitation": "94.4",
         "Dependences": {
           "Dependence": {
+            "@id": "1",
             "Libele": "jardin",
             "Surface": "15.9"
           }
         },
-        "EstimationValeur": "50000"
+        "ValeurEstimation": "50000",
+        "Risque": "vol"
       }
     },
     {
       "@id": "6",
+      "@date_debut_contrat": "2013-08-28",
       "Habitation": {
         "AdressePostal": {
           "Adresse": {
@@ -262,33 +279,41 @@
         "SurfaceHabitation": "94.4",
         "Dependences": {
           "Dependence": {
-            "Libele": "Blacon",
+            "@id": "2",
+            "Libele": "Balcon",
             "Surface": "13.4"
           }
         },
-        "EstimationValeur": "60000"
+        "ValeurEstimation": "60000",
+        "Risque": "risques habitation"
       }
     },
     {
       "@id": "7",
+      "@date_debut_contrat": "2012-01-01",
+      "@date_fin_contrat": "2024-01-01",
       "Emprunt": {
         "Montant": "5000",
         "Type": "Emprunt bancaire",
         "Duree": {
           "DateDebut": "2010-06-13",
           "DateFin": "2023-12-30"
-        }
+        },
+        "Risque": "aggravé de santé"
       }
     },
     {
       "@id": "8",
+      "@date_debut_contrat": "2019-02-13",
+      "@date_fin_contrat": "2022-02-13",
       "Emprunt": {
         "Montant": "2000",
         "Type": "Emprunt d'un particulier",
         "Duree": {
           "DateDebut": "2019-02-12",
           "DateFin": "2022-02-12"
-        }
+        },
+        "Risque": "perte d'autonomie"
       }
     }
   ]
