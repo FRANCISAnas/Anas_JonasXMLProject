@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CompagnieAuto><Clients><Client id="1">
+            <Nom>Toto</Nom>
+            <Prenom>Titi</Prenom>
+            <DateDeNaissance>1998-01-01</DateDeNaissance>
+            <AdressePostal>
+                <Adresse>
+                    <NumeroDeRue>7</NumeroDeRue>
+                    <NomDeRue>rue des alpes</NomDeRue>
+                </Adresse>
+                <CodePostal>07000</CodePostal>
+                <Ville>Privas</Ville>
+                <Pays>France</Pays>
+            </AdressePostal>
+            <Tel>07.30.30.11.48</Tel>
+            <DonnesBancaire>
+                <NomDeBanque>La banque postale</NomDeBanque>
+                <RIB>FR33-3504-3696-7720-4004-6981-338</RIB>
+                <Pays>France</Pays>
+            </DonnesBancaire>
+            <Email>anas.francis@etu.unice.fr</Email>
+            <ContratsAssocies>
+                <ContratClient idContrat="1">
+                    <TypeContrat>Auto</TypeContrat>
+                </ContratClient>
+                <ContratClient idContrat="5">
+                    <TypeContrat>Moto</TypeContrat>
+                </ContratClient>
+            </ContratsAssocies>
+            <ConseillerAssocie idConseiller="1"/>
+        </Client><Client id="3">
+            <Nom>DUPONT</Nom>
+            <Prenom>Ronald</Prenom>
+            <DateDeNaissance>1995-06-03</DateDeNaissance>
+            <AdressePostal>
+                <Adresse>
+                    <NumeroDeRue>75014</NumeroDeRue>
+                    <NomDeRue>Allée Georges-Besse</NomDeRue>
+                </Adresse>
+                <CodePostal>71000</CodePostal>
+                <Ville>Paris</Ville>
+                <Pays>France</Pays>
+            </AdressePostal>
+            <Tel>09.04.33.91.20</Tel>
+            <DonnesBancaire>
+                <NomDeBanque>La BNP</NomDeBanque>
+                <RIB>FR76-1014-6398-3002-0074-6636-336</RIB>
+                <Pays>France</Pays>
+            </DonnesBancaire>
+            <Email>hello.world@etu.unice.fr</Email>
+
+            <ContratsAssocies>
+                <ContratClient idContrat="2">
+                    <TypeContrat>Auto</TypeContrat>
+                </ContratClient>
+                <ContratClient idContrat="6">
+                    <TypeContrat>Habitation</TypeContrat>
+                </ContratClient>
+            </ContratsAssocies>
+            <ConseillerAssocie idConseiller="1"/>
+        </Client></Clients><Conseillers><Conseiller id="1">
+            <Nom>Toto</Nom>
+            <Prenom>les pierres</Prenom>
+        </Conseiller></Conseillers><Contrats><Contrat><Auto date_permis="2009-05-10" date_permis_conjoint="2012-06-26" date_mise_en_circu="2014-07-20">
+                <Marque>fiat</Marque>
+                <NumImmarticulation>FT-252-LZ</NumImmarticulation>
+                <HautGamme>11000 <!-- Le prix en valeur entière est en euros --></HautGamme>
+                <BonusMalus>156</BonusMalus>
+                <DatesSinistres>
+                    <datesinistre>2016-04-13</datesinistre>
+                    <datesinistre>2018-09-19</datesinistre>
+                </DatesSinistres>
+
+                <Depistages>
+                    <Depistage date="2002-09-24">
+                        <Resultat>true</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
+                    </Depistage>
+                    <Depistage date="2005-05-30">
+                        <Resultat>false</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
+                    </Depistage>
+                </Depistages>
+                <Risque>Tout Risques</Risque>
+            </Auto><id>1</id><date_debut_contrat>2020-10-05</date_debut_contrat><date_fin_contrat/></Contrat><Contrat><Auto date_permis="2012-08-20" date_permis_conjoint="2015-02-15" date_mise_en_circu="2013-07-10">
+                <Marque>Audi</Marque>
+                <NumImmarticulation>TU-324-IY</NumImmarticulation>
+                <HautGamme>21000 <!-- Le prix en valeur entière et en euros --></HautGamme>
+                <BonusMalus>300</BonusMalus>
+                <Depistages>
+                    <Depistage date="2014-04-24">
+                        <Resultat>false</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
+                    </Depistage>
+                    <Depistage date="2015-05-16">
+                        <Resultat>false</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
+                    </Depistage>
+                </Depistages>
+                <Risque>tous accidents</Risque>
+            </Auto><id>2</id><date_debut_contrat>2017-03-10</date_debut_contrat><date_fin_contrat/></Contrat></Contrats></CompagnieAuto>
