@@ -1,4 +1,4 @@
-# Anas_JonansXMLProject
+# Anas_JonasXMLProject
 Projet de simulation la base de données d'un campagnie d'assurance en XML et en JSON. 
 Ce projet dirigé par Mme.Catherine Faron
 
