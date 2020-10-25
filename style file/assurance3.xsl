@@ -3,12 +3,15 @@
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
     <xsl:output encoding="UTF-8" indent="yes" method="xml" />
     <!--
-         le directeur aimerait avoir la liste des conseillers ordonnés par le nombre de clients au total
-         et les conseillé l'ensemble des risques que chaque conseiller gère
+         le directeur aimerait visualiser tous les conseillers
+         Pour chaque conseiller il aimerait savoir
+         le nom et prenom de ce conseiller ainsi que son Id
+         la liste ordonnée par nombre de contrats des clients qu'ils conseillent
+         la somme de tous les contrats des clients de ce conseiller
+         la liste des riques que ce conseiller a à gerer à travers les contrats de ses clients
      -->
 <xsl:template match="CampagnieAssurance">
 
-    <xsl:variable name="contractsNumber" select="1"/>
     <html>
         <head>
             <meta name="viewport" content="width=device-width, initial-scale=1"/>
@@ -18,14 +21,7 @@
         </head>
 
         <body>
-            <!--<h1 style="text-align:center;">Voici tous les clients ayant au moins <xsl:value-of select="$contractsNumber"/> contrat(s) dans la base de données</h1>-->
-
-            <xsl:apply-templates select="Employees/Conseillers/Conseiller"/>
-            <!--<div class="w3-container w3-teal">
-                <center><p>Copright Francis-Jonas 2019-2020 </p></center>
-            </div>-->
-
-
+            <xsl:apply-templates select="Conseillers/Conseiller"/>
         </body>
     </html>
 </xsl:template>
@@ -37,25 +33,36 @@
     <table style="width:100%" >
         <tr>
             <th colspan="3"><div class="w3-container w3-teal">
-                <xsl:value-of select="Nom"/><xsl:text> </xsl:text><xsl:value-of select="Prenom"/>
+                <xsl:value-of select="translate(Nom, $smallcase, $uppercase)"/><xsl:text> </xsl:text><xsl:value-of select="Prenom"/>
             </div></th>
         </tr>
-        <tr style="height:350px;">
+        <tr style="height:250px;">
             <td width="35%">
                 <img src="images/conseiller.png" alt="Client" style="width:80%; height:330px"/>
             </td>
             <td width="35%">
 
-                <h4 style="text-shadow:1px 1px 0 #444">Id: 3</h4>
-                <h4 style="text-shadow:1px 1px 0 #444">Nombre totale de contrats des clients rattaché: 50</h4>
-                <br/>
-                <h4  style="text-shadow:1px 1px 0 #444">Listes des risques que contiennent les contrats: <xsl:value-of
-                        select="$conseillerId"/></h4></td>
-            <td width="30%">
-                <table style="width:100%;max-height: 350px;overflow-y:scroll" >
+                <h4 style="text-shadow:1px 1px 0 #444">Id: <xsl:value-of select="@id"/></h4>
 
-                    <tbody style="display: block; height: 350px; overflow-y: scroll">
-                        <xsl:apply-templates select="../../../Clients/Client[ConseillerAssocie/@idConseiller=$conseillerId]"/>
+                <h4 style="text-shadow:1px 1px 0 #444">Nombre de clients rattaché:
+                    <xsl:value-of  select="count(../../Clients/Client[ConseillerAssocie/@idConseiller=$conseillerId])"/>
+                </h4><h4 style="text-shadow:1px 1px 0 #444">Nombre totale de contrats de ses clients:
+                <xsl:value-of  select="count(../../Clients/Client[ConseillerAssocie/@idConseiller=$conseillerId]/ContratsAssocies/ContratClient)"/>
+            </h4>
+                <br/>
+                <h4  style="text-shadow:1px 1px 0 #444">Listes des risques que contiennent les contrats: <xsl:value-of select="$conseillerId"/></h4></td>
+            <td width="30%">
+                <table style="width:100%;max-height: 210px;overflow-y:scroll" >
+
+                    <caption><h3>liste des  client(s) auquel il est rattaché</h3></caption>
+
+                    <tbody style="display: block; height: 210px; overflow-y: scroll">
+                        <tr>
+                            <th style="width:40%;">Nom</th>
+                            <th style="width:40%;">Prenom</th>
+                            <th style="width:20%;">Contrats</th>
+                        </tr>
+                        <xsl:apply-templates select="../../Clients/Client[ConseillerAssocie/@idConseiller=$conseillerId]"/>
                     </tbody>
                 </table>
             </td>
@@ -64,7 +71,11 @@
 </xsl:template>
 
 <xsl:template  match="Client">
-    <tr><td><xsl:value-of select="Nom"/></td><xsl:text> </xsl:text><td><xsl:value-of select="Prenom"/></td></tr>
+    <tr>
+        <td style="width:40%; text-align:center;"><xsl:value-of select="Nom"/></td>
+        <td style="width:40%; text-align:center;"><xsl:value-of select="Prenom"/></td>
+        <td style="width:20%; text-align:center;"><xsl:value-of select="count(ContratsAssocies/ContratClient)"/></td>
+    </tr>
 </xsl:template>
 
 </xsl:stylesheet>
