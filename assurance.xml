@@ -2,7 +2,16 @@
 <?xml-stylesheet type="text/xsl" href="style file/assurance3.xsl" ?>
 <CampagnieAssurance xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
                     xsi:noNamespaceSchemaLocation="validator.xsd">
-
+    <nomCompagnie>AnasJonasCompagnie</nomCompagnie>
+    <adressePostale>
+        <Adresse>
+            <NumeroDeRue>2400</NumeroDeRue>
+            <NomDeRue>Routes des dolines</NomDeRue>
+        </Adresse>
+        <CodePostal>06560</CodePostal>
+        <Ville>Biot</Ville>
+        <Pays>France</Pays>
+    </adressePostale>
     <Clients>
         <Client id = "1">
             <Nom>Toto</Nom>
@@ -32,7 +41,7 @@
                     <TypeContrat>Moto</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
-            <ConseillerAssocie idConseiller="1"></ConseillerAssocie>
+            <ConseillerAssocie idConseiller="1"/>
         </Client>
 
         <Client id = "2">
@@ -60,7 +69,7 @@
                     <TypeContrat>Moto</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
-            <ConseillerAssocie idConseiller="1"></ConseillerAssocie>
+            <ConseillerAssocie idConseiller="1"/>
         </Client>
 
         <Client id="3">
@@ -92,47 +101,28 @@
                     <TypeContrat>Habitation</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
-            <ConseillerAssocie idConseiller="1"></ConseillerAssocie>
+            <ConseillerAssocie idConseiller="2"/>
         </Client>
 
     </Clients>
+    <Conseillers>
+        <Conseiller id="1">
+            <Nom>Toto</Nom>
+            <Prenom>les pierres</Prenom>
+        </Conseiller>
 
-    <Risques>
-        <Risque>CatastrophesNaturelle</Risque>
-        <Risque>Incendie</Risque>
-        <Risque>DegatsDesEaux</Risque>
-        <Risque>Accident</Risque>
-        <Risque>Vols</Risque>
-        <Risque>Terrorisme</Risque>
-    </Risques>
-
-    <Employees>
-        <Conseillers>
-            <Conseiller id="1">
-                <Nom>Toto</Nom>
-                <Prenom>les pierres</Prenom>
-            </Conseiller>
-
-            <Conseiller id="2">
-                <Nom>Jean-Marie</Nom>
-                <Prenom>Christophe</Prenom>
-            </Conseiller>
-        </Conseillers>
-    </Employees>
-
-
-
+        <Conseiller id="2">
+            <Nom>Jean-Marie</Nom>
+            <Prenom>Christophe</Prenom>
+        </Conseiller>
+    </Conseillers>
     <Contrats>
-        <Contrat id="1">
+        <Contrat id="1" date_debut_contrat="2020-10-05">
             <Auto date_permis="2009-05-10" date_permis_conjoint="2012-06-26" date_mise_en_circu="2014-07-20">
                 <Marque>fiat</Marque>
                 <NumImmarticulation>FT-252-LZ</NumImmarticulation>
-                <HautGamme>
-                    <Prix>11000</Prix> <!-- Le prix en valeur entière et en euros -->
-                </HautGamme>
-                <BonusMalus>
-                    <Valeur>156</Valeur>
-                </BonusMalus>
+                <HautGamme>11000 <!-- Le prix en valeur entière est en euros --></HautGamme>
+                <BonusMalus>156</BonusMalus>
                 <DatesSinistres>
                     <datesinistre>2016-04-13</datesinistre>
                     <datesinistre>2018-09-19</datesinistre>
@@ -140,43 +130,45 @@
 
                 <Depistages>
                     <Depistage date="2002-09-24">
-                        <Resultat>Positive</Resultat>
+                        <Resultat>true</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
                     </Depistage>
                     <Depistage date="2005-05-30">
-                        <Resultat>Negative</Resultat>
+                        <Resultat>false</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
                     </Depistage>
                 </Depistages>
+                <Risque>Tout Risques</Risque>
             </Auto>
         </Contrat>
 
-        <Contrat id="2">
+        <Contrat id="2" date_debut_contrat="2017-03-10">
             <Auto date_permis="2012-08-20" date_permis_conjoint="2015-02-15" date_mise_en_circu="2013-07-10">
                 <Marque>Audi</Marque>
                 <NumImmarticulation>TU-324-IY</NumImmarticulation>
-                <HautGamme>
-                    <Prix>21000</Prix> <!-- Le prix en valeur entière et en euros -->
-                </HautGamme>
-                <BonusMalus>
-                    <Valeur>300</Valeur>
-                </BonusMalus>
+                <HautGamme>21000 <!-- Le prix en valeur entière et en euros --></HautGamme>
+                <BonusMalus>300</BonusMalus>
                 <Depistages>
                     <Depistage date="2014-04-24">
-                        <Resultat>Negative</Resultat>
+                        <Resultat>false</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
                     </Depistage>
                     <Depistage date="2015-05-16">
-                        <Resultat>Negative</Resultat>
+                        <Resultat>false</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
                     </Depistage>
                 </Depistages>
+                <Risque>tous accidents</Risque>
             </Auto>
         </Contrat>
 
-        <Contrat id="3">
+        <Contrat id="3" date_debut_contrat="2019-05-07">
             <Moto date_permis="2019-02-15" date_mise_en_circu="2019-03-30">
                 <Marque>BMW</Marque>
 
                 <NumImmarticulation>KK-524-ZE</NumImmarticulation>
                 <BonusMalus>
-                    <Valeur>5523</Valeur>
+                    5523
                 </BonusMalus>
                 <DatesSinistres>
                     <datesinistre>2017-04-13</datesinistre>
@@ -185,22 +177,25 @@
 
                 <Depistages>
                     <Depistage date="2005-05-30">
-                        <Resultat>0</Resultat>
+                        <Resultat>false</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
                     </Depistage>
                     <Depistage date="-2005-06-20">
-                        <Resultat>0</Resultat>
+                        <Resultat>false</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
                     </Depistage>
                 </Depistages>
+                <Risque>Tout Risques</Risque>
             </Moto>
         </Contrat>
 
-        <Contrat id="4">
+        <Contrat id="4" date_debut_contrat="2017-05-04">
             <Moto date_permis="2016-02-15" date_mise_en_circu="2016-03-30">
                 <Marque>Honda</Marque>
 
-                <NumImmarticulation>KK-524-ZE</NumImmarticulation>
+                <NumImmarticulation>JD-931-DB</NumImmarticulation>
                 <BonusMalus>
-                    <Valeur>5523</Valeur>
+                    5523
                 </BonusMalus>
                 <DatesSinistres>
                     <datesinistre>2014-01-13</datesinistre>
@@ -209,16 +204,19 @@
 
                 <Depistages>
                     <Depistage date="2017-05-30">
-                        <Resultat>Négative</Resultat>
+                        <Resultat>false</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
                     </Depistage>
                     <Depistage date="-2017-07-20">
-                        <Resultat>Positive</Resultat>
+                        <Resultat>true</Resultat>
+                        <NomDepistage>Alcoolémie</NomDepistage>
                     </Depistage>
                 </Depistages>
+                <Risque>personnelle du conducteur</Risque>
             </Moto>
         </Contrat>
 
-        <Contrat id="5">
+        <Contrat id="5" date_debut_contrat="2015-06-20">
             <Habitation>
                 <AdressePostal>
                     <Adresse>
@@ -231,17 +229,18 @@
                 </AdressePostal>
                 <SurfaceHabitation>94.4</SurfaceHabitation> <!--contrat de bail-->
                 <Dependences>
-                    <Dependence>
+                    <Dependence id="1">
                         <Libele>jardin</Libele>
                         <Surface>15.9</Surface>
                     </Dependence>
                 </Dependences>
 
-                <EstimationValeur>50000</EstimationValeur>
+                <ValeurEstimation>50000</ValeurEstimation>
+                <Risque>vol</Risque>
             </Habitation>
         </Contrat>
 
-        <Contrat id="6">
+        <Contrat id="6" date_debut_contrat="2013-08-28">
             <Habitation>
                 <AdressePostal>
                     <Adresse>
@@ -254,16 +253,17 @@
                 </AdressePostal>
                 <SurfaceHabitation>94.4</SurfaceHabitation> <!--contrat de bail-->
                 <Dependences>
-                    <Dependence>
-                        <Libele>Blacon</Libele>
+                    <Dependence id="2">
+                        <Libele>Balcon</Libele>
                         <Surface>13.4</Surface>
                     </Dependence>
                 </Dependences>
-                <EstimationValeur>60000</EstimationValeur>
+                <ValeurEstimation>60000</ValeurEstimation>
+                <Risque>risques habitation</Risque>
             </Habitation>
         </Contrat>
 
-        <Contrat id="7">
+        <Contrat id="7" date_debut_contrat="2012-01-01" date_fin_contrat="2024-01-01">
             <Emprunt>
                 <Montant>5000</Montant>
                 <Type>Emprunt bancaire</Type>
@@ -271,9 +271,10 @@
                     <DateDebut>2010-06-13</DateDebut>
                     <DateFin>2023-12-30</DateFin>
                 </Duree>
+                <Risque>aggravé de santé</Risque>
             </Emprunt>
         </Contrat>
-        <Contrat id="8">
+        <Contrat id="8" date_debut_contrat="2019-02-13" date_fin_contrat="2022-02-13">
             <Emprunt>
                 <Montant>2000</Montant>
                 <Type>Emprunt d'un particulier</Type>
@@ -281,6 +282,7 @@
                     <DateDebut>2019-02-12</DateDebut>
                     <DateFin>2022-02-12</DateFin>
                 </Duree>
+                <Risque>perte d'autonomie</Risque>
             </Emprunt>
         </Contrat>
     </Contrats>

@@ -1,37 +1,61 @@
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema">
 
+    <xs:annotation>
+        <xs:documentation xml:lang="fr">
+            Compagnie d'assurance Version 1.0
+            Jonas Aniglo x Anas Fancis
+        </xs:documentation>
+    </xs:annotation>
+    <!-- ********************* CampagnieAssurance  ********************* -->
     <xs:element name="CampagnieAssurance">
         <xs:complexType>
             <xs:sequence>
+                <xs:element name="nomCompagnie" type="xs:string"/>
+                <xs:element name="adressePostale" type="AdressePostalType"/>
                 <xs:element name='Clients' type="ClientsType" minOccurs="0"/>
-                <xs:element name='Risques' type="RisquesType" minOccurs="1"/>
-                <xs:element name='Employees' type="EmployeesType" minOccurs="0"/>
+                <xs:element name='Conseillers' type="ConseillersType" minOccurs="0"/>
                 <xs:element name='Contrats' type="ContratsType" minOccurs="0"/>
             </xs:sequence>
         </xs:complexType>
-
+        <!-- ********************* key  ********************* -->
         <xs:key name="contratKey">
             <xs:selector xpath="Contrats/Contrat"/>
             <xs:field xpath="@id"/>
         </xs:key>
 
+        <xs:key name="conseillerKey">
+            <xs:selector xpath="CampagnieAssurance/Conseillers/Conseiller"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+
+        <xs:key name="idDependance">
+            <xs:selector xpath="Contrats/Contrat/Habitation/Dependences/Dependence"/>
+            <xs:field xpath="@id"/>
+        </xs:key>
+
+        <!-- ********************* keyRef  ********************* -->
         <xs:keyref name="clientAvecContrat" refer="contratKey">
             <xs:selector xpath="Clients/Client/ContratsAssocies/ContratClient"/>
             <xs:field xpath="@idContrat"/>
         </xs:keyref>
-
-        <xs:key name="conseillerKey">
-            <xs:selector xpath="CampagnieAssurance/Employees/Conseillers/Conseiller"/>
-            <xs:field xpath="@id"/>
-        </xs:key>
 
         <xs:keyref name="clientAvecConseiller" refer="conseillerKey">
             <xs:selector xpath="CampagnieAssurance/Clients/Client/ContratsAssocies/ContratClient"/>
             <xs:field xpath="@idConseiller"/>
         </xs:keyref>
 
+        <!-- ********************* unique  ********************* -->
+        <xs:unique name="motoNumImmarticulation">
+            <xs:selector xpath="Contrats/Contrat/Auto"/>
+            <xs:field xpath="NumImmarticulation"/>
+        </xs:unique>
+        <xs:unique name="autoNumImmarticulation">
+            <xs:selector xpath="Contrats/Contrat/Moto"/>
+            <xs:field xpath="NumImmarticulation"/>
+        </xs:unique>
     </xs:element>
 
+    <!-- ********************* client  ********************* -->
     <xs:complexType name="ClientsType">
         <xs:sequence>
             <xs:element name="Client" type="ClientType" maxOccurs="unbounded" minOccurs="0"/>
@@ -48,9 +72,9 @@
             <xs:element name='DonnesBancaire' type="DonnesBancaireType" minOccurs="0"/> <!-- payment par chèque ou espèce-->
             <xs:element name='Email' type="EmailType" minOccurs="0"/><!-- il doit obligatoirement avoir un numéro de téléphone du coup il lui est facultatif d'avoir un email -->
             <xs:element name='ContratsAssocies' type="ContratsAssociesType"/>
-            <xs:element nillable="true" name='ConseillerAssocie' type="ConseillerAssocieType" maxOccurs="1" minOccurs="1"/>
+            <xs:element nillable="true" name='ConseillerAssocie' type="ConseillerAssocieType"/>
         </xs:sequence>
-        <xs:attribute name='id' type='xs:integer'/>
+        <xs:attribute name='id' type='xs:integer' use="required"/>
     </xs:complexType>
 
     <xs:complexType name="AdressePostalType">
@@ -102,21 +126,68 @@
         </xs:restriction>
     </xs:simpleType>
 
+    <xs:complexType name="ContratsAssociesType">
+        <xs:sequence>
+            <xs:element name='ContratClient' type="ContratClientType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
 
+    <xs:complexType name="ContratClientType">
+        <xs:sequence>
+            <xs:element name='TypeContrat' type="TypeContratEnum"/>
+        </xs:sequence>
+        <xs:attribute name='idContrat' type='xs:integer'/>
+    </xs:complexType>
+
+    <xs:complexType name="ConseillerAssocieType">
+        <xs:attribute name='idConseiller' type='xs:integer'/>
+    </xs:complexType>
+
+    <!-- ********************* Contrats  ********************* -->
+
+    <xs:complexType name="ContratsType">
+        <xs:sequence>
+            <xs:element name='Contrat' type="ContratType" maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="ContratType">
+        <xs:choice>
+            <xs:element name='Auto' type="AutoType"/>
+            <xs:element name='Moto' type="MotoType" />
+            <xs:element name='Habitation' type="HabitationType" />
+            <xs:element name='Emprunt' type="EmpruntType"/>
+        </xs:choice>
+        <xs:attribute name='id' type='xs:integer' use="required"/>
+        <xs:attribute name="date_debut_contrat" type="xs:date" use="required"/>
+        <xs:attribute name="date_fin_contrat" type="xs:date"/>
+    </xs:complexType>
+
+    <xs:simpleType name="TypeContratEnum">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="Moto"/>
+            <xs:enumeration value="Auto"/>
+            <xs:enumeration value="Habitation"/>
+            <xs:enumeration value="Emprunt"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+
+    <!-- ********************* Auto  ********************* -->
     <xs:complexType name="AutoType">
         <xs:sequence>
             <xs:element name='Marque' type="xs:string" /> <!-- Une voiture est issue d'une seule marque-->
             <xs:element name='NumImmarticulation' type="NumImmarticulationType"/> <!-- Num imm est unique-->
-            <xs:element name='HautGamme' type="HautGammeType" minOccurs="0"/>
-            <xs:element name='BonusMalus' type="BonusMalusType"/>
+            <xs:element name='HautGamme' type="xs:integer" minOccurs="0"/>
+            <xs:element name='BonusMalus' type="xs:integer"/>
             <xs:element name='DatesSinistres' type="DatesSinistresType" minOccurs="0"/>
             <xs:element name='Depistages' type="DepistagesType" minOccurs="0"/>
+            <xs:element name="Risque" type="AutoRisque"/>
         </xs:sequence>
 
         <xs:attribute name='date_permis' type='xs:date'/>
         <xs:attribute name='date_permis_conjoint' type='xs:date'/>
         <xs:attribute name='date_mise_en_circu' type='xs:date'/>
-
     </xs:complexType>
 
 
@@ -127,65 +198,10 @@
     </xs:simpleType>
 
 
-    <xs:complexType name="MotoType">
-        <xs:sequence>
-            <xs:element name='Marque' type="xs:string"/>
-            <xs:element name='NumImmarticulation' type="NumImmarticulationType" maxOccurs="1" minOccurs="1"/> <!-- Num imm est unique-->
-            <xs:element name='BonusMalus' type="BonusMalusType" maxOccurs="1" minOccurs="1"/>
-            <xs:element name='DatesSinistres' type="DatesSinistresType" maxOccurs="1" minOccurs="0"/>
-            <xs:element name='Depistages' type="DepistagesType" maxOccurs="1" minOccurs="0"/>
-        </xs:sequence>
-
-        <xs:attribute name='date_permis' type='xs:date'/>
-        <xs:attribute name='date_mise_en_circu' type='xs:date'/>
-    </xs:complexType>
-
-
-    <xs:complexType name="HabitationType">
-        <xs:sequence>
-            <xs:element name='AdressePostal' type="AdressePostalType" /> <!-- Un motp est issue d'une seule marque-->
-            <xs:element name='SurfaceHabitation' type="xs:float"/> <!-- Un motp est issue d'une seule marque-->
-            <xs:element name='Dependences' type="DependencesType" minOccurs="0"/> <!-- Num imm est unique-->
-            <xs:element name='EstimationValeur' type="xs:integer"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="EmpruntType">
-        <xs:sequence>
-            <xs:element name='Montant' type="xs:integer"/>
-            <xs:element name='Type' type="xs:string"/>
-            <xs:element name='Duree' type="DureeType" />
-        </xs:sequence>
-    </xs:complexType>
-
-
-    <xs:complexType name="DureeType">
-        <xs:sequence>
-            <xs:element name='DateDebut' type="xs:date" />
-            <xs:element name='DateFin' type="xs:date" />
-        </xs:sequence>
-    </xs:complexType>
-
-
-
-    <xs:complexType name="HautGammeType">
-        <xs:sequence>
-            <xs:element name='Prix' type="xs:integer"/>
-        </xs:sequence>
-    </xs:complexType>
-
-
-    <xs:complexType name="BonusMalusType">
-        <xs:sequence>
-            <xs:element name='Valeur' type="xs:integer"/>
-        </xs:sequence>
-    </xs:complexType>
-
-
-
     <xs:complexType name="DepistageType">
         <xs:sequence>
-            <xs:element name='Resultat' type="xs:string"/>
+            <xs:element name='Resultat' type="xs:boolean"/>
+            <xs:element name='NomDepistage' type="xs:string"/>
         </xs:sequence>
         <xs:attribute name="date" type="xs:date"/>
     </xs:complexType>
@@ -198,9 +214,35 @@
 
     <xs:complexType name="DepistagesType">
         <xs:sequence>
-            <xs:element name='Depistage' type="DepistageType" maxOccurs="unbounded" minOccurs="0"/>
+            <xs:element name='Depistage' type="DepistageType" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
+    <!-- ********************* Moto  ********************* -->
+    <xs:complexType name="MotoType">
+        <xs:sequence>
+            <xs:element name='Marque' type="xs:string"/>
+            <xs:element name='NumImmarticulation' type="NumImmarticulationType"/> <!-- Num imm est unique-->
+            <xs:element name='BonusMalus' type="xs:integer"/>
+            <xs:element name='DatesSinistres' type="DatesSinistresType" minOccurs="0"/>
+            <xs:element name='Depistages' type="DepistagesType" minOccurs="0"/>
+            <xs:element name="Risque" type="MotoRisque"/>
+        </xs:sequence>
+        <xs:attribute name='date_permis' type='xs:date'/>
+        <xs:attribute name='date_mise_en_circu' type='xs:date'/>
+    </xs:complexType>
+
+
+    <!-- ********************* Habitation  ********************* -->
+    <xs:complexType name="HabitationType">
+        <xs:sequence>
+            <xs:element name='AdressePostal' type="AdressePostalType" />
+            <xs:element name='SurfaceHabitation' type="xs:float"/>
+            <xs:element name='Dependences' type="DependencesType" minOccurs="0"/>
+            <xs:element name='ValeurEstimation' type="xs:integer"/>
+            <xs:element name="Risque" type="HabitationRisque"/>
+        </xs:sequence>
+    </xs:complexType>
+
 
     <xs:complexType name="DependencesType">
         <xs:sequence>
@@ -213,92 +255,90 @@
             <xs:element name='Libele' type="xs:string"/>
             <xs:element name='Surface' type="xs:float"/>
         </xs:sequence>
-
+        <xs:attribute name='id' type='xs:integer' use="required"/>
     </xs:complexType>
 
-    <xs:complexType name="RisquesType">
+    <!-- ********************* Emprunts  ********************* -->
+    <xs:complexType name="EmpruntType">
         <xs:sequence>
-            <xs:element name="Risque" type="RisqueType" maxOccurs="unbounded"/>
+            <xs:element name='Montant' type="xs:integer"/>
+            <xs:element name='Type' type="xs:string"/>
+            <xs:element name='Duree' type="DureeType" />
+            <xs:element name="Risque" type="EmpruntRisque"/>
         </xs:sequence>
     </xs:complexType>
 
 
-    <xs:complexType name="EmployeesType">
+    <xs:complexType name="DureeType">
         <xs:sequence>
-            <xs:element name='Conseillers' type="ConseillersType"/>
+            <xs:element name='DateDebut' type="xs:date" />
+            <xs:element name='DateFin' type="xs:date" />
         </xs:sequence>
     </xs:complexType>
 
 
+    <!-- ********************* Conseiller  ********************* -->
     <xs:complexType name="ConseillersType">
         <xs:sequence>
             <xs:element name='Conseiller' type="ConseillerType" maxOccurs="unbounded"/>
         </xs:sequence>
     </xs:complexType>
 
-
     <xs:complexType name="ConseillerType">
         <xs:sequence>
             <xs:element name='Nom' type="xs:string" />
             <xs:element name='Prenom' type="xs:string" />
         </xs:sequence>
-
-        <xs:attribute name='id' type='xs:integer'/>
+        <xs:attribute name='id' type='xs:integer' use="required"/>
     </xs:complexType>
 
 
-    <xs:complexType name="ContratsType">
-        <xs:sequence>
-            <xs:element name='Contrat' type="ContratType" maxOccurs="unbounded" />
-        </xs:sequence>
-    </xs:complexType>
-
-
-    <xs:complexType name="ContratType">
-        <xs:choice>
-            <xs:element name='Auto' type="AutoType"/>
-            <xs:element name='Moto' type="MotoType" />
-            <xs:element name='Habitation' type="HabitationType" />
-            <xs:element name='Emprunt' type="EmpruntType"/>
-        </xs:choice>
-
-        <xs:attribute name='id' type='xs:integer'/>
-    </xs:complexType>
-
-
-    <xs:complexType name="ContratsAssociesType">
-        <xs:sequence>
-            <xs:element name='ContratClient' type="ContratClientType" maxOccurs="unbounded"/>
-        </xs:sequence>
-    </xs:complexType>
-
-    <xs:complexType name="ContratClientType">
-        <xs:sequence>
-            <xs:element name='TypeContrat' type="TypeContratEnum"/>
-        </xs:sequence>
-
-        <xs:attribute name='idContrat' type='xs:integer'/>
-    </xs:complexType>
-    <xs:simpleType name="TypeContratEnum">
+    <!-- ********************* Risques  ********************* -->
+    <xs:simpleType name="AutoRisque">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="Moto"/>
-            <xs:enumeration value="Auto"/>
-            <xs:enumeration value="Habitation"/>
-            <xs:enumeration value="Emprunt"/>
+            <xs:enumeration value="Tout Risques" />
+            <xs:enumeration value="tous accidents" />
+            <xs:enumeration value="bris de glace" />
+            <xs:enumeration value="vol" />
+            <xs:enumeration value="incendie et explosion" />
         </xs:restriction>
     </xs:simpleType>
-    <xs:simpleType name="RisqueType">
+    <xs:simpleType name="MotoRisque">
         <xs:restriction base="xs:string">
-            <xs:enumeration value="CatastrophesNaturelle" />
-            <xs:enumeration value="Incendie" />
-            <xs:enumeration value="DegatsDesEaux" />
-            <xs:enumeration value="Accident" />
-            <xs:enumeration value="Vols" />
-            <xs:enumeration value="Terrorisme" />
+            <xs:enumeration value="Tout Risques" />
+            <xs:enumeration value="vol et incendie" />
+            <xs:enumeration value="bris de glace" />
+            <xs:enumeration value="prêt de guidon" />
+            <xs:enumeration value="personnelle du conducteur" />
+            <xs:enumeration value="valeur à neuf" />
+            <xs:enumeration value="équipement" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="HabitationRisque">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="risques habitation" />
+            <xs:enumeration value="vol" />
+            <xs:enumeration value="dommages des appareils électriques" />
+            <xs:enumeration value="protection juridique" />
+            <xs:enumeration value="responsabilité civile scolaire" />
+            <xs:enumeration value="responsabilité civile" />
+            <xs:enumeration value="assistance à domicile" />
+        </xs:restriction>
+    </xs:simpleType>
+    <xs:simpleType name="EmpruntRisque">
+        <xs:restriction base="xs:string">
+            <xs:enumeration value="aggravé de santé" />
+            <xs:enumeration value="décès" />
+            <xs:enumeration value="perte d'autonomie" />
+            <xs:enumeration value="arrêt de travail" />
+            <xs:enumeration value="invalidité" />
         </xs:restriction>
     </xs:simpleType>
 
-    <xs:complexType name="ConseillerAssocieType">
-        <xs:attribute name='idConseiller' type='xs:integer'/>
+
+    <xs:complexType name="RisquesType">
+        <xs:sequence>
+            <xs:element name="Risque" type="AutoRisque" maxOccurs="unbounded"/>
+        </xs:sequence>
     </xs:complexType>
 </xs:schema>
