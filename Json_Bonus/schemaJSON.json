@@ -5,6 +5,44 @@
     "@noNamespaceSchemaLocation": {
       "type": "string"
     },
+    "nomCompagnie": {
+      "type": "string"
+    },
+    "adressePostale": {
+      "type": "object",
+      "properties": {
+        "Adresse": {
+          "type": "object",
+          "properties": {
+            "NumeroDeRue": {
+              "type": "string"
+            },
+            "NomDeRue": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "NumeroDeRue",
+            "NomDeRue"
+          ]
+        },
+        "CodePostal": {
+          "type": "string"
+        },
+        "Ville": {
+          "type": "string"
+        },
+        "Pays": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "Adresse",
+        "CodePostal",
+        "Ville",
+        "Pays"
+      ]
+    },
     "Clients": {
       "type": "array",
       "items": [
@@ -117,6 +155,17 @@
                   ]
                 }
               ]
+            },
+            "ConseillerAssocie": {
+              "type": "object",
+              "properties": {
+                "@idConseiller": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@idConseiller"
+              ]
             }
           },
           "required": [
@@ -128,7 +177,8 @@
             "Tel",
             "DonnesBancaire",
             "Email",
-            "ContratsAssocies"
+            "ContratsAssocies",
+            "ConseillerAssocie"
           ]
         },
         {
@@ -228,6 +278,17 @@
               "required": [
                 "ContratClient"
               ]
+            },
+            "ConseillerAssocie": {
+              "type": "object",
+              "properties": {
+                "@idConseiller": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@idConseiller"
+              ]
             }
           },
           "required": [
@@ -239,7 +300,8 @@
             "Tel",
             "DonnesBancaire",
             "Email",
-            "ContratsAssocies"
+            "ContratsAssocies",
+            "ConseillerAssocie"
           ]
         },
         {
@@ -351,6 +413,17 @@
                   ]
                 }
               ]
+            },
+            "ConseillerAssocie": {
+              "type": "object",
+              "properties": {
+                "@idConseiller": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@idConseiller"
+              ]
             }
           },
           "required": [
@@ -362,83 +435,53 @@
             "Tel",
             "DonnesBancaire",
             "Email",
-            "ContratsAssocies"
+            "ContratsAssocies",
+            "ConseillerAssocie"
           ]
         }
       ]
     },
-    "Risques": {
+    "Conseillers": {
       "type": "array",
       "items": [
         {
-          "type": "string"
-        },
-        {
-          "type": "string"
-        },
-        {
-          "type": "string"
-        },
-        {
-          "type": "string"
-        },
-        {
-          "type": "string"
-        },
-        {
-          "type": "string"
-        }
-      ]
-    },
-    "Employees": {
-      "type": "object",
-      "properties": {
-        "Conseillers": {
-          "type": "array",
-          "items": [
-            {
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "type": "string"
-                },
-                "Nom": {
-                  "type": "string"
-                },
-                "Prenom": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id",
-                "Nom",
-                "Prenom"
-              ]
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
             },
-            {
-              "type": "object",
-              "properties": {
-                "@id": {
-                  "type": "string"
-                },
-                "Nom": {
-                  "type": "string"
-                },
-                "Prenom": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "@id",
-                "Nom",
-                "Prenom"
-              ]
+            "Nom": {
+              "type": "string"
+            },
+            "Prenom": {
+              "type": "string"
             }
+          },
+          "required": [
+            "@id",
+            "Nom",
+            "Prenom"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "Nom": {
+              "type": "string"
+            },
+            "Prenom": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "@id",
+            "Nom",
+            "Prenom"
           ]
         }
-      },
-      "required": [
-        "Conseillers"
       ]
     },
     "Contrats": {
@@ -450,112 +493,7 @@
             "@id": {
               "type": "string"
             },
-            "Auto": {
-              "type": "object",
-              "properties": {
-                "@date_permis": {
-                  "type": "string"
-                },
-                "@date_permis_conjoint": {
-                  "type": "string"
-                },
-                "@date_mise_en_circu": {
-                  "type": "string"
-                },
-                "Marque": {
-                  "type": "string"
-                },
-                "NumImmarticulation": {
-                  "type": "string"
-                },
-                "HautGamme": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "string"
-                    }
-                  ]
-                },
-                "BonusMalus": {
-                  "type": "object",
-                  "properties": {
-                    "Valeur": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "Valeur"
-                  ]
-                },
-                "DatesSinistres": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "string"
-                    }
-                  ]
-                },
-                "Depistages": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "object",
-                      "properties": {
-                        "@date": {
-                          "type": "string"
-                        },
-                        "Resultat": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@date",
-                        "Resultat"
-                      ]
-                    },
-                    {
-                      "type": "object",
-                      "properties": {
-                        "@date": {
-                          "type": "string"
-                        },
-                        "Resultat": {
-                          "type": "string"
-                        }
-                      },
-                      "required": [
-                        "@date",
-                        "Resultat"
-                      ]
-                    }
-                  ]
-                }
-              },
-              "required": [
-                "@date_permis",
-                "@date_permis_conjoint",
-                "@date_mise_en_circu",
-                "Marque",
-                "NumImmarticulation",
-                "HautGamme",
-                "BonusMalus",
-                "DatesSinistres",
-                "Depistages"
-              ]
-            }
-          },
-          "required": [
-            "@id",
-            "Auto"
-          ]
-        },
-        {
-          "type": "object",
-          "properties": {
-            "@id": {
+            "@date_debut_contrat": {
               "type": "string"
             },
             "Auto": {
@@ -577,22 +515,20 @@
                   "type": "string"
                 },
                 "HautGamme": {
+                  "type": "string"
+                },
+                "BonusMalus": {
+                  "type": "string"
+                },
+                "DatesSinistres": {
                   "type": "array",
                   "items": [
                     {
                       "type": "string"
-                    }
-                  ]
-                },
-                "BonusMalus": {
-                  "type": "object",
-                  "properties": {
-                    "Valeur": {
+                    },
+                    {
                       "type": "string"
                     }
-                  },
-                  "required": [
-                    "Valeur"
                   ]
                 },
                 "Depistages": {
@@ -606,11 +542,15 @@
                         },
                         "Resultat": {
                           "type": "string"
+                        },
+                        "NomDepistage": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "@date",
-                        "Resultat"
+                        "Resultat",
+                        "NomDepistage"
                       ]
                     },
                     {
@@ -621,14 +561,21 @@
                         },
                         "Resultat": {
                           "type": "string"
+                        },
+                        "NomDepistage": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "@date",
-                        "Resultat"
+                        "Resultat",
+                        "NomDepistage"
                       ]
                     }
                   ]
+                },
+                "Risque": {
+                  "type": "string"
                 }
               },
               "required": [
@@ -639,12 +586,15 @@
                 "NumImmarticulation",
                 "HautGamme",
                 "BonusMalus",
-                "Depistages"
+                "DatesSinistres",
+                "Depistages",
+                "Risque"
               ]
             }
           },
           "required": [
             "@id",
+            "@date_debut_contrat",
             "Auto"
           ]
         },
@@ -654,10 +604,16 @@
             "@id": {
               "type": "string"
             },
-            "Moto": {
+            "@date_debut_contrat": {
+              "type": "string"
+            },
+            "Auto": {
               "type": "object",
               "properties": {
                 "@date_permis": {
+                  "type": "string"
+                },
+                "@date_permis_conjoint": {
                   "type": "string"
                 },
                 "@date_mise_en_circu": {
@@ -669,27 +625,11 @@
                 "NumImmarticulation": {
                   "type": "string"
                 },
-                "BonusMalus": {
-                  "type": "object",
-                  "properties": {
-                    "Valeur": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "Valeur"
-                  ]
+                "HautGamme": {
+                  "type": "string"
                 },
-                "DatesSinistres": {
-                  "type": "array",
-                  "items": [
-                    {
-                      "type": "string"
-                    },
-                    {
-                      "type": "string"
-                    }
-                  ]
+                "BonusMalus": {
+                  "type": "string"
                 },
                 "Depistages": {
                   "type": "array",
@@ -702,11 +642,15 @@
                         },
                         "Resultat": {
                           "type": "string"
+                        },
+                        "NomDepistage": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "@date",
-                        "Resultat"
+                        "Resultat",
+                        "NomDepistage"
                       ]
                     },
                     {
@@ -717,36 +661,49 @@
                         },
                         "Resultat": {
                           "type": "string"
+                        },
+                        "NomDepistage": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "@date",
-                        "Resultat"
+                        "Resultat",
+                        "NomDepistage"
                       ]
                     }
                   ]
+                },
+                "Risque": {
+                  "type": "string"
                 }
               },
               "required": [
                 "@date_permis",
+                "@date_permis_conjoint",
                 "@date_mise_en_circu",
                 "Marque",
                 "NumImmarticulation",
+                "HautGamme",
                 "BonusMalus",
-                "DatesSinistres",
-                "Depistages"
+                "Depistages",
+                "Risque"
               ]
             }
           },
           "required": [
             "@id",
-            "Moto"
+            "@date_debut_contrat",
+            "Auto"
           ]
         },
         {
           "type": "object",
           "properties": {
             "@id": {
+              "type": "string"
+            },
+            "@date_debut_contrat": {
               "type": "string"
             },
             "Moto": {
@@ -765,15 +722,7 @@
                   "type": "string"
                 },
                 "BonusMalus": {
-                  "type": "object",
-                  "properties": {
-                    "Valeur": {
-                      "type": "string"
-                    }
-                  },
-                  "required": [
-                    "Valeur"
-                  ]
+                  "type": "string"
                 },
                 "DatesSinistres": {
                   "type": "array",
@@ -797,11 +746,15 @@
                         },
                         "Resultat": {
                           "type": "string"
+                        },
+                        "NomDepistage": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "@date",
-                        "Resultat"
+                        "Resultat",
+                        "NomDepistage"
                       ]
                     },
                     {
@@ -812,14 +765,21 @@
                         },
                         "Resultat": {
                           "type": "string"
+                        },
+                        "NomDepistage": {
+                          "type": "string"
                         }
                       },
                       "required": [
                         "@date",
-                        "Resultat"
+                        "Resultat",
+                        "NomDepistage"
                       ]
                     }
                   ]
+                },
+                "Risque": {
+                  "type": "string"
                 }
               },
               "required": [
@@ -829,12 +789,14 @@
                 "NumImmarticulation",
                 "BonusMalus",
                 "DatesSinistres",
-                "Depistages"
+                "Depistages",
+                "Risque"
               ]
             }
           },
           "required": [
             "@id",
+            "@date_debut_contrat",
             "Moto"
           ]
         },
@@ -842,6 +804,112 @@
           "type": "object",
           "properties": {
             "@id": {
+              "type": "string"
+            },
+            "@date_debut_contrat": {
+              "type": "string"
+            },
+            "Moto": {
+              "type": "object",
+              "properties": {
+                "@date_permis": {
+                  "type": "string"
+                },
+                "@date_mise_en_circu": {
+                  "type": "string"
+                },
+                "Marque": {
+                  "type": "string"
+                },
+                "NumImmarticulation": {
+                  "type": "string"
+                },
+                "BonusMalus": {
+                  "type": "string"
+                },
+                "DatesSinistres": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "string"
+                    },
+                    {
+                      "type": "string"
+                    }
+                  ]
+                },
+                "Depistages": {
+                  "type": "array",
+                  "items": [
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        },
+                        "NomDepistage": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat",
+                        "NomDepistage"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "properties": {
+                        "@date": {
+                          "type": "string"
+                        },
+                        "Resultat": {
+                          "type": "string"
+                        },
+                        "NomDepistage": {
+                          "type": "string"
+                        }
+                      },
+                      "required": [
+                        "@date",
+                        "Resultat",
+                        "NomDepistage"
+                      ]
+                    }
+                  ]
+                },
+                "Risque": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "@date_permis",
+                "@date_mise_en_circu",
+                "Marque",
+                "NumImmarticulation",
+                "BonusMalus",
+                "DatesSinistres",
+                "Depistages",
+                "Risque"
+              ]
+            }
+          },
+          "required": [
+            "@id",
+            "@date_debut_contrat",
+            "Moto"
+          ]
+        },
+        {
+          "type": "object",
+          "properties": {
+            "@id": {
+              "type": "string"
+            },
+            "@date_debut_contrat": {
               "type": "string"
             },
             "Habitation": {
@@ -891,6 +959,9 @@
                     "Dependence": {
                       "type": "object",
                       "properties": {
+                        "@id": {
+                          "type": "string"
+                        },
                         "Libele": {
                           "type": "string"
                         },
@@ -899,6 +970,7 @@
                         }
                       },
                       "required": [
+                        "@id",
                         "Libele",
                         "Surface"
                       ]
@@ -908,7 +980,10 @@
                     "Dependence"
                   ]
                 },
-                "EstimationValeur": {
+                "ValeurEstimation": {
+                  "type": "string"
+                },
+                "Risque": {
                   "type": "string"
                 }
               },
@@ -916,12 +991,14 @@
                 "AdressePostal",
                 "SurfaceHabitation",
                 "Dependences",
-                "EstimationValeur"
+                "ValeurEstimation",
+                "Risque"
               ]
             }
           },
           "required": [
             "@id",
+            "@date_debut_contrat",
             "Habitation"
           ]
         },
@@ -929,6 +1006,9 @@
           "type": "object",
           "properties": {
             "@id": {
+              "type": "string"
+            },
+            "@date_debut_contrat": {
               "type": "string"
             },
             "Habitation": {
@@ -978,6 +1058,9 @@
                     "Dependence": {
                       "type": "object",
                       "properties": {
+                        "@id": {
+                          "type": "string"
+                        },
                         "Libele": {
                           "type": "string"
                         },
@@ -986,6 +1069,7 @@
                         }
                       },
                       "required": [
+                        "@id",
                         "Libele",
                         "Surface"
                       ]
@@ -995,7 +1079,10 @@
                     "Dependence"
                   ]
                 },
-                "EstimationValeur": {
+                "ValeurEstimation": {
+                  "type": "string"
+                },
+                "Risque": {
                   "type": "string"
                 }
               },
@@ -1003,12 +1090,14 @@
                 "AdressePostal",
                 "SurfaceHabitation",
                 "Dependences",
-                "EstimationValeur"
+                "ValeurEstimation",
+                "Risque"
               ]
             }
           },
           "required": [
             "@id",
+            "@date_debut_contrat",
             "Habitation"
           ]
         },
@@ -1016,6 +1105,12 @@
           "type": "object",
           "properties": {
             "@id": {
+              "type": "string"
+            },
+            "@date_debut_contrat": {
+              "type": "string"
+            },
+            "@date_fin_contrat": {
               "type": "string"
             },
             "Emprunt": {
@@ -1041,17 +1136,23 @@
                     "DateDebut",
                     "DateFin"
                   ]
+                },
+                "Risque": {
+                  "type": "string"
                 }
               },
               "required": [
                 "Montant",
                 "Type",
-                "Duree"
+                "Duree",
+                "Risque"
               ]
             }
           },
           "required": [
             "@id",
+            "@date_debut_contrat",
+            "@date_fin_contrat",
             "Emprunt"
           ]
         },
@@ -1061,6 +1162,12 @@
             "@id": {
               "type": "string"
             },
+            "@date_debut_contrat": {
+              "type": "string"
+            },
+            "@date_fin_contrat": {
+              "type": "string"
+            },
             "Emprunt": {
               "type": "object",
               "properties": {
@@ -1084,17 +1191,23 @@
                     "DateDebut",
                     "DateFin"
                   ]
+                },
+                "Risque": {
+                  "type": "string"
                 }
               },
               "required": [
                 "Montant",
                 "Type",
-                "Duree"
+                "Duree",
+                "Risque"
               ]
             }
           },
           "required": [
             "@id",
+            "@date_debut_contrat",
+            "@date_fin_contrat",
             "Emprunt"
           ]
         }
@@ -1103,9 +1216,10 @@
   },
   "required": [
     "@noNamespaceSchemaLocation",
+    "nomCompagnie",
+    "adressePostale",
     "Clients",
-    "Risques",
-    "Employees",
+    "Conseillers",
     "Contrats"
   ]
 }
