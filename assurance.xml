@@ -69,7 +69,7 @@
                     <TypeContrat>Moto</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
-            <ConseillerAssocie idConseiller="1"/>
+            <ConseillerAssocie idConseiller="2"/>
         </Client>
 
         <Client id="3">
@@ -101,7 +101,7 @@
                     <TypeContrat>Habitation</TypeContrat>
                 </ContratClient>
             </ContratsAssocies>
-            <ConseillerAssocie idConseiller="2"/>
+            <ConseillerAssocie idConseiller="1"/>
         </Client>
 
     </Clients>

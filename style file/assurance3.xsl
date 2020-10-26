@@ -8,7 +8,6 @@
          le nom et prenom de ce conseiller ainsi que son Id
          la liste ordonnée par nombre de contrats des clients qu'ils conseillent
          la somme de tous les contrats des clients de ce conseiller
-         la liste des riques que ce conseiller a à gerer à travers les contrats de ses clients
      -->
 <xsl:template match="CampagnieAssurance">
 

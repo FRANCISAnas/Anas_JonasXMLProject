@@ -1,12 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <xsl:stylesheet version="1.0"
                 xmlns:xsl="http://www.w3.org/1999/XSL/Transform">
-
-   <!-- <xsl:output encoding="UTF-8" indent="yes" method="xml" />-->
-<!-- Toto est un conseiller et il veut voir tous les contrats d'assurance de type automobile dans la base de données
- ou un aperçu de tous les contrats par type de contrats ainsi que le nombre total que chaque type de contrats contient
- pour les auto il aimerait savoir si ces auto sont de haute gamme ou pas pour les habitations si elles ont des dépendances ou pas
- et pour l'emprunt si la date d'échéance du client est tout proche ou dépassé-->
+<!-- Toto est un conseiller et il veut voir tous les contrats d'assurance de type automobile dans la base de données-->
     <xsl:template match="CampagnieAssurance">
         <html>
             <head>
